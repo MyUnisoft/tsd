@@ -1,0 +1,34 @@
+{
+  "name": "@myunisoft/tsd",
+  "version": "1.0.0",
+  "description": "MyUnisoft public TypeScript definition",
+  "main": "index.d.ts",
+  "scripts": {
+    "test": "tsd",
+    "prepublishOnly": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyUnisoft/tsd.git"
+  },
+  "files": [
+    "types",
+    "index.d.ts"
+  ],
+  "keywords": [],
+  "publishConfig": {
+    "@myunisoft:registry": "https://registry.npmjs.org/"
+  },
+  "author": "GENTILHOMME Thomas <gentilhomme.thomas@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MyUnisoft/tsd/issues"
+  },
+  "homepage": "https://github.com/MyUnisoft/tsd#readme",
+  "devDependencies": {
+    "tsd": "^0.17.0"
+  },
+  "tsd": {
+    "directory": "test"
+  }
+}
