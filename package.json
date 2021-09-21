@@ -2,7 +2,6 @@
   "name": "@myunisoft/tsd",
   "version": "1.0.0",
   "description": "MyUnisoft public TypeScript definition",
-  "main": "index.d.ts",
   "scripts": {
     "test": "tsd",
     "prepublishOnly": "npm run test"
