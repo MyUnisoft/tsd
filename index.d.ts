@@ -2,7 +2,7 @@ import * as Auth from "./types/authentication";
 import * as Windev from "./types/windev";
 import * as Utils from "./types/utils";
 
-import { MemberGroup, Account } from "./types/regular";
+import { MemberGroup, Account, AccountNoCp } from "./types/regular";
 import { BearerToken, ApiToken, UserToken, FirmToken } from "./types/token";
 
 export {
@@ -11,6 +11,7 @@ export {
   Utils,
   MemberGroup,
   Account,
+  AccountNoCp,
   BearerToken,
   ApiToken,
   UserToken,

@@ -15,5 +15,7 @@ export interface Account {
 
   /** Account name */
   label: string;
-  counterpart_account?: Except<Account, "counterpart_account"> | null;
+  counterpart_account?: AccountNoCp | null;
 }
+
+export type AccountNoCp = Except<Account, "counterpart_account">;
