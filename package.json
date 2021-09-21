@@ -30,5 +30,8 @@
   },
   "tsd": {
     "directory": "test"
+  },
+  "dependencies": {
+    "type-fest": "^2.3.4"
   }
 }

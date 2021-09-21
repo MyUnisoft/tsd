@@ -1,4 +1,3 @@
-import * as User from "./user";
 import { BearerToken } from "./token";
 
 export {
@@ -6,7 +5,8 @@ export {
   HttpResponse,
   Status,
   Policy,
-  MemberGroup
+  MemberGroup,
+  Information
 }
 
 type HttpResponse = {
@@ -15,7 +15,7 @@ type HttpResponse = {
   firmId: number;
   firm: Firm;
   details: BearerToken;
-  userData?: User.Information;
+  userData?: Information;
 } | {
   status: "authenticated";
   details: Policy[];
@@ -32,7 +32,7 @@ interface Policy {
   firmId: number;
   firm: Firm;
   details: BearerToken;
-  userData?: User.Information;
+  userData?: Information;
 }
 
 type Status =
@@ -46,4 +46,15 @@ interface Firm {
 interface MemberGroup {
   member_group_id: string;
   label: string;
+}
+
+interface Information {
+  nom: string;
+  prenom: string;
+  isadmin: boolean;
+  user_id: number;
+  mail: {
+      mail: string;
+      id_coord_pers_physique: string;
+  }[];
 }

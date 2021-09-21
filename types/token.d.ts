@@ -1,30 +1,23 @@
-export {
-  BearerToken,
-  UserToken,
-  ApiToken,
-  FirmToken
-}
-
-interface UserToken {
+export interface UserToken {
   member_group_id: number;
   pers_physique_id: number;
 }
 
-interface ApiToken {
+export interface ApiToken {
   type: "api";
   member_group_id: number;
   third_party_id: number;
   society_id: number;
 }
 
-interface FirmToken {
+export interface FirmToken {
   type: "firm";
   member_group_id: number;
   pers_physique_id: number;
   third_party_id: number;
 }
 
-interface BearerToken {
+export interface BearerToken {
   token_type: "bearer";
   expire_in: string;
   access_token: string;

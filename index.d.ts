@@ -1,10 +1,10 @@
 import * as Auth from "./types/authentication";
-import * as User from "./types/user";
+import * as Windev from "./types/windev";
 import { BearerToken, ApiToken, UserToken, FirmToken } from "./types/token";
 
 export {
   Auth,
-  User,
+  Windev,
   BearerToken,
   ApiToken,
   UserToken,
