@@ -1,22 +1,13 @@
 // Import Internal
 import { PJ } from "./document";
 import { VatParam } from "./society";
+import { Account } from "../regular";
 import { DeepNullable } from "../utils";
 
 // Import Third-Party dependencies
 import { Except, RequireAtLeastOne } from "type-fest";
 
-export interface Account {
-  /** Internal (postgres incremented) account id */
-  account_id: number;
-
-  /** Account number (or class). Example: 411FOOBAR */
-  account_number: string;
-
-  /** Account name */
-  label: string;
-  counterpart_account?: Except<Account, "counterpart_account"> | null;
-}
+export { Account };
 
 export interface SimplifiedAccount extends Account {
   array_counterpart_account?: CounterpartAccountLine[] | null;

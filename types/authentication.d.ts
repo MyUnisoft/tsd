@@ -1,15 +1,8 @@
+// Import Internal
 import { BearerToken } from "./token";
+import { MemberGroup } from "./regular";
 
-export {
-  Firm,
-  HttpResponse,
-  Status,
-  Policy,
-  MemberGroup,
-  Information
-}
-
-type HttpResponse = {
+export type HttpResponse = {
   status: "authenticated";
   policy: "OAuth2" | "AD";
   firmId: number;
@@ -27,7 +20,7 @@ type HttpResponse = {
   details: MemberGroup[];
 };
 
-interface Policy {
+export interface Policy {
   policy: "OAuth2" | "AD";
   firmId: number;
   firm: Firm;
@@ -35,20 +28,15 @@ interface Policy {
   userData?: Information;
 }
 
-type Status =
+export type Status =
   "authenticated" | "multi-authenticated" | "firm-selection" | "update-password";
 
-interface Firm {
+  export interface Firm {
   id: number | string;
   label: string;
 }
 
-interface MemberGroup {
-  member_group_id: string;
-  label: string;
-}
-
-interface Information {
+export interface Information {
   nom: string;
   prenom: string;
   isadmin: boolean;

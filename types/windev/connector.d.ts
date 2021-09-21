@@ -1,4 +1,4 @@
-export type ConnectorLabel =
+export type Label =
   "OCR MyUnisoft" | "OCR Premium" | "Silae" | "EDOC" | "JEPILOTE" | "YOOZ" | "EBP" | "Tipisoft" | "Tiime" |
   "Imbolc Systems" | "Quickbooks" | "IDOCUS" | "Qonto" | "Jenji" | "EMASPHERE" | "Agora" | "TransferBanque" | "Smartisi " |
   "Skwarel " | "MYCOMPANYFILES" | "TBC Solutions" | "AXONAUT" | "AUCTAM" | "REGATE" | "EXACT" | "Evoliz" | "LEANPAY" |
@@ -11,11 +11,6 @@ export interface Connector {
   id_third_party_api: number;
   code: string | null;
   complementary_information: string | null;
-  label: ConnectorLabel;
+  label: Label;
   password: string | null;
-}
-
-export interface ThirdParty {
-  id_third_party_api: number;
-  label: string;
 }

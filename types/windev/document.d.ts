@@ -42,7 +42,3 @@ export interface Attachment {
   download: string;
   baseURL: string;
 }
-
-export interface OwnCloudUploadResponse {
-  document_token: string;
-}
