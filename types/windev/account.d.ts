@@ -13,7 +13,7 @@ export interface SimplifiedAccount extends Account {
   array_counterpart_account?: CounterpartAccountLine[] | null;
 }
 
-interface CounterpartAccountLine extends Except<Account, "counterpart_account"> {
+export interface CounterpartAccountLine extends Except<Account, "counterpart_account"> {
   num_ordre: string;
   vat_param: VatParam | null;
 }
@@ -24,7 +24,7 @@ export interface DetailedAccounts {
 
 export type DetailedAccount = SimplifiedAccount & DeepNullable<AccountDetails>;
 
-interface AccountDetails {
+export interface AccountDetails {
   solde: number;
   sens: string;
   comment: string;
@@ -39,7 +39,7 @@ interface AccountDetails {
   complementary_informations: ComplementaryInformations;
 }
 
-interface ComplementaryInformations {
+export interface ComplementaryInformations {
   id_info_compte_tiers: number;
   person_in_charge: string;
   address_number: string;
@@ -70,7 +70,7 @@ interface ComplementaryInformations {
   payment_type: PaymentType;
 }
 
-interface Iban {
+export interface Iban {
   id_iban_compte_tiers: number;
   iban: string;
   bic: string;
@@ -78,13 +78,13 @@ interface Iban {
   rum_date_signature?: string;
 }
 
-interface PaymentType {
+export interface PaymentType {
   payment_type_id: number;
   label: string;
   code: string;
 }
 
-interface PaymentDeadline {
+export interface PaymentDeadline {
   id_payment_deadline: number;
   label: string;
   number_of_days: number;
@@ -92,19 +92,19 @@ interface PaymentDeadline {
   day_number: number;
 }
 
-interface Ape {
+export interface Ape {
   id: number;
   value: string;
   label: string;
   info: string;
 }
 
-interface TypeVoie {
+export interface TypeVoie {
   id_type_voie: number;
   lib: string;
 }
 
-interface AmountTypePaid {
+export interface AmountTypePaid {
   id_amount_type_paid: number;
   label: string;
 }
@@ -179,7 +179,7 @@ export enum AccountClass {
 
 export type UpdateAccountParams = RequireAtLeastOne<UpdateAccount, "account_number"|"label">
 
-interface UpdateAccount {
+export interface UpdateAccount {
   account_id: number;
   account_number: string;
   label: string;
@@ -194,7 +194,7 @@ interface UpdateAccount {
   complementary_info?: UpdateComplementaryInfo;
 }
 
-interface UpdateComplementaryInfo {
+export interface UpdateComplementaryInfo {
   profession?: string;
   siren?: string;
   id_ape?: number;

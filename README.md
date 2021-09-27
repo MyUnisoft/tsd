@@ -48,3 +48,6 @@ export {
   FirmToken
 }
 ```
+
+## License
+MIT

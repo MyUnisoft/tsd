@@ -135,7 +135,7 @@ export type Entries = {
   entry_array: EntryO[];
 }
 
-interface BaseEntry<DiaryType, EntryLineType> {
+export interface BaseEntry<DiaryType, EntryLineType> {
   comment: boolean;
   entry_id: number;
   date_piece: string;
