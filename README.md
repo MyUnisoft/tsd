@@ -3,13 +3,12 @@
 </h1>
 
 <p align="center">
-  MyUnisoft public TypeScript interfaces and types
+  MyUnisoft public TypeScript interfaces and types 📜.
 </p>
 
 <p align="center">
     <a href="https://github.com/MyUnisoft/tsd"><img src="https://img.shields.io/github/package-json/v/MyUnisoft/tsd?style=flat-square" alt="npm version"></a>
     <a href="https://github.com/MyUnisoft/tsd"><img src="https://img.shields.io/github/license/MyUnisoft/tsd?style=flat-square" alt="license"></a>
-    <a href="https://github.com/MyUnisoft/tsd"><img src="https://img.shields.io/github/languages/code-size/MyUnisoft/tsd?style=flat-square" alt="size"></a>
     <a href="./SECURITY.md"><img src="https://img.shields.io/badge/Security-Responsible%20Disclosure-yellow.svg?style=flat-square" alt="Responsible Disclosure Policy" /></a>
 </p>
 
@@ -32,7 +31,7 @@ $ npm i @myunisoft/tsd -D
 
 ## API
 
-There is multiple exported `namespace` in the local file `index.d.ts`.
+There is multiple exported `namespace` in the local file `index.d.ts`. Online documentation is accessible [here](https://myunisoft.github.io/tsd/)
 
 ```ts
 export {
