@@ -184,27 +184,10 @@ export interface FiscalFile {
   };
 }
 
-export interface Axe {
-  id_axe: number;
-  code: string;
-  label: string;
-  id_societe: number;
-  id_section_default?: number;
-}
-
 export interface ComptesEDI {
   mail: string;
   libelle: string;
   id_compte_edi: number;
-}
-
-export interface Section {
-  id_section_analytique: number;
-  code: string;
-  label: string;
-  id_axe: number;
-  account: string;
-  isdefault: boolean;
 }
 
 export interface SocietyAssociate {
