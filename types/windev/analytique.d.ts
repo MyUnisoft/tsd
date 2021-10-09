@@ -1,9 +1,9 @@
-import { Except, RequireAtLeastOne } from "type-fest";
+import { Except } from "type-fest";
 
 //
 // AXES
 
-export interface Axe {  //  types\windev\society.d.ts - L:187
+export interface Axe {
   id_axe: number;
   code: string;
   label: string;
@@ -11,15 +11,7 @@ export interface Axe {  //  types\windev\society.d.ts - L:187
   id_section_default?: number;
 }
 
-export interface ParamsToCreateAxe {
-  code: string;
-  label: string;
-  id_section_default?: number;
-}
-
-export type ParamsToUpdateAxe = RequireAtLeastOne<Partial<ParamsToCreateAxe>>;
-
-export interface InfoFromDefaultSectionFromOneAxe { //  Route sur Postman uniquement.
+export interface InfoFromDefaultSectionFromOneAxe {
   id_section_analytique: number;
   code: string;
   label: string;
@@ -29,7 +21,7 @@ export interface InfoFromDefaultSectionFromOneAxe { //  Route sur Postman unique
 //
 // SECTIONS
 
-export interface Section {  // types\windev\society.d.ts - L:201 (Updated: add Section.closed)
+export interface Section {
   id_section_analytique: number;
   code: string;
   label: string;
@@ -38,21 +30,6 @@ export interface Section {  // types\windev\society.d.ts - L:201 (Updated: add S
   closed: boolean;
   isdefault: boolean;
 }
-
-export interface ParamsToCreateSection {
-  code: string;
-  label?: string;
-  id_section_default?: number;
-}
-
-interface UpdateSection {
-  code?: string;
-  label?: string;
-  account?: string;
-  closed?: boolean;
-}
-
-export type ParamsToUpdateSection = RequireAtLeastOne<UpdateSection>;
 
 /**
  * Retourné après la création d'une Section ou la modification d'une Section existante.
@@ -67,15 +44,4 @@ export interface RepartitionKey {
   key: string;
   condition: string;
   id_axe: number;
-}
-
-//  Param identique pour créer et modifier: https://myunisoft.atlassian.net/wiki/spaces/MYUNISOFT/pages/1160544295/Cle+de+repartition
-export interface ParamsToCreateOrUpdateRepartionKey {
-  key?: string;
-  condition?: string;
-}
-
-export interface ParamsRepartitionAuto {
-  id_section: number;
-  rate: number;
 }
