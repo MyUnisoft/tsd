@@ -1,7 +1,6 @@
 // Import Internal
 import { BearerToken } from "./token";
 import { MemberGroup } from "./regular";
-import { SetOptional } from "type-fest";
 
 export type HttpResponse = {
   status: "authenticated";
@@ -47,5 +46,3 @@ export interface Information {
       id_coord_pers_physique: string;
   }[];
 }
-
-export type MemberGroupHash = Record<string, SetOptional<MemberGroup, "member_group_id">>;

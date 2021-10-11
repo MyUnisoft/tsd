@@ -1,5 +1,5 @@
 // Import Third-Party dependencies
-import { Except } from "type-fest";
+import { Except, SetOptional } from "type-fest";
 
 export interface MemberGroup {
   member_group_id: string;
@@ -19,3 +19,5 @@ export interface Account {
 }
 
 export type AccountNoCp = Except<Account, "counterpart_account">;
+
+export type MemberGroupHash = Record<string, SetOptional<MemberGroup, "member_group_id">>;
