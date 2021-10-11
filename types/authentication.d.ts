@@ -29,7 +29,7 @@ export interface Policy {
 }
 
 export type Status =
-  "authenticated" | "multi-authenticated" | "firm-selection" | "update-password";
+  "authenticated" | "multi-authenticated" | "firm-selection" | "update-password" | "require-otp";
 
   export interface Firm {
   id: number | string;
