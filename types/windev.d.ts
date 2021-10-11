@@ -5,6 +5,7 @@ import * as Entry from "./windev/entry";
 import * as Society from "./windev/society";
 import * as User from "./windev/user";
 import * as ThirdParty from "./windev/thirdparty";
+import * as Analytique from "./windev/analytique"
 
 export {
   Account,
@@ -13,5 +14,6 @@ export {
   ThirdParty,
   Entry,
   Society,
-  User
+  User,
+  Analytique
 }
