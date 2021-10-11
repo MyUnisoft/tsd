@@ -5,7 +5,6 @@ import { MemberGroup } from "./regular";
 export type HttpResponse = {
   status: "authenticated";
   policy: "OAuth2" | "AD";
-  firmId: number;
   firm: Firm;
   details: BearerToken;
   userData?: Information;
@@ -22,7 +21,6 @@ export type HttpResponse = {
 
 export interface Policy {
   policy: "OAuth2" | "AD";
-  firmId: number;
   firm: Firm;
   details: BearerToken;
   userData?: Information;
