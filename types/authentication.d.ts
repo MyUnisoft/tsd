@@ -3,7 +3,6 @@ import { BearerToken } from "./token";
 import { MemberGroup } from "./regular";
 import { SetOptional } from "type-fest";
 
-
 export type HttpResponse = {
   status: "authenticated";
   policy: "OAuth2" | "AD";
