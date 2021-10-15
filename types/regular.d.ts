@@ -21,3 +21,12 @@ export interface Account {
 export type AccountNoCp = Except<Account, "counterpart_account">;
 
 export type MemberGroupHash = Record<string, SetOptional<MemberGroup, "member_group_id">>;
+
+export interface AdminNotification {
+  message: any;
+  pers_physique_id: number;
+  filters?: {
+    schemas?: number[],
+    userTypeId?: number;
+  };
+}
