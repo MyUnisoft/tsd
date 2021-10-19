@@ -223,7 +223,31 @@ export interface APE {  //  types\windev\account.d.ts
   code: string;
 }
 
-export interface ExerciceInList {
+// GET/exercices et GET/society/exercice renvoie la même chose mais pas au même format. 
+// GET/exercices n'est pas dans la doc.
+// export interface Exercice {
+//   // blocked: boolean; N'apparait pas sur Postman
+//   exercice_id: number;
+//   start_date: string;
+//   end_date: string;
+
+//   /**Label de l'exercice ( N-1, N, N+1 etc..). ??? */
+//   label: string;
+
+//   result: number;
+
+//   /**Chiffre d'affaire sur l'exercice. */
+//   ca: number;
+//   closed: boolean;
+//   duration: number;
+//   closed_at: null | string;
+
+//   /**ID de la personne qui a clotûré l'exercice. */
+//   closed_by: null | number;
+// }
+
+// route: GET /society/exercice
+export interface Exercice {
   // blocked: boolean; N'apparait pas sur Postman
   exercice_id: number;
   start_date: string;
@@ -242,16 +266,22 @@ export interface ExerciceInList {
 
   /**ID de la personne qui a clotûré l'exercice. */
   closed_by: null | number;
+
+  /**??? */
+  review_model: {
+    label: string;
+    id_review_model: number;
+  }
 }
 
-export type ExerciceList = Exercice[];
-
-export type Exercice = Omit<ExerciceInList, "exercice_id" | "result"> & {
+export type CurrentExercice = Omit<Exercice, "exercice_id" | "result" | "review_model"> & {
   id_exercice: number;
 
   /**Permet de savoir si les A-nouveaux ont été passé. */
   passage_an: boolean;
 };
+
+export type UpdatedExercice = CurrentExercice;
 
 export interface CompteEDI {
   mail: string;
