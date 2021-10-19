@@ -1,3 +1,5 @@
+import { PaymentDeadline } from "./account";
+
 interface CommonField {
   id: number;
   label: string;
@@ -223,7 +225,7 @@ export interface APE {  //  types\windev\account.d.ts
   code: string;
 }
 
-// GET/exercices et GET/society/exercice renvoie la même chose mais pas au même format. 
+// GET/exercices et GET/society/exercice renvoient la même chose mais pas au même format. 
 // GET/exercices n'est pas dans la doc.
 // export interface Exercice {
 //   // blocked: boolean; N'apparait pas sur Postman
@@ -416,14 +418,6 @@ export interface SocietyComptability {
   account_sales: Omit<CommonField, "value">;
   account_expense_report: Omit<CommonField, "value">;
   wallets: Omit<CommonField, "value">[];
-}
-
-export interface PaymentDeadline {  //  types/windev/account.d.ts
-  id: number;
-  label: string;
-  number_of_days: number;
-  end_month: boolean;
-  day_number: null; //  ???
 }
 
 export interface Capital {
