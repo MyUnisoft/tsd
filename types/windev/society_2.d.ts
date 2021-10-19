@@ -111,16 +111,16 @@ export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" 
   siret: string;
   activity: string;
 
-  /**Référence d'obligation fiscale ??? */
+  /**Code Référence d'Obligation Fiscale (ROF) de la TVA.  */
   rof_tva: string;
 
-  /**Télétransmission des Données Fiscales et Sociales ??? */
+  /**Code Référence d'Obligation Fiscale (ROF) Transfert des Données Fiscales et Comptables (TDFC). */
   rof_tdfc: string;
 
-  /**Cotisation Foncière des Entreprises ??? */
+  /**Code Référence d'Obligation Fiscale (ROF) de Cotisation Fonciere des Entreprise (CFE). ??? */
   rof_cfe: string
 
-  /**Cotisation sur la valeur ajoutée des entreprises ? */
+  /**Code Référence d'Obligation Fiscale (ROF) de la Cotisation sur la Valeur Ajoutée des Entreprises (CVAE). */
   rof_cvae: string;
 
   address_number: string;
@@ -511,7 +511,7 @@ export interface FiscalFile {
 
   adherent_code: string;
 
-  /**Indique si c'est un mono établissementau sens de la CVAE. */
+  /**Indique si c'est un mono établissement au sens de la CVAE. */
   mono_etab: boolean;
 
   /**Cloture automatique lors de l'envoi EDI TVA. */
