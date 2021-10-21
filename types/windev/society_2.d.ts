@@ -1,4 +1,9 @@
 import { PaymentDeadline } from "./account";
+// Import Internal Dependencies
+import { Account } from "./account";
+
+// Import Third-party Dependencies
+import { Except } from "type-fest";
 
 interface CommonField {
   id: number;
@@ -119,7 +124,7 @@ export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" 
   /**Code Référence d'Obligation Fiscale (ROF) Transfert des Données Fiscales et Comptables (TDFC). */
   rof_tdfc: string;
 
-  /**Code Référence d'Obligation Fiscale (ROF) de Cotisation Fonciere des Entreprise (CFE). ??? */
+  /**Code Référence d'Obligation Fiscale (ROF) de Cotisation Fonciere des Entreprise (CFE). */
   rof_cfe: string
 
   /**Code Référence d'Obligation Fiscale (ROF) de la Cotisation sur la Valeur Ajoutée des Entreprises (CVAE). */
@@ -293,7 +298,7 @@ export interface CompteEDI {
 
 export type ResultRule = CommonField;
 export type Comptability = CommonField;
-// export type ComptabilityHeld = CommonField;
+export type ComptabilityHeld = CommonField;
 
 export interface RedirectMails {
   /**Adresse mail de collecte pour les ventes. */
@@ -333,6 +338,7 @@ export interface Users {
 export interface User {
   /**Nom et prénom de l'utilisateur. */
   user: string;
+
   profil: string;
   profil_type: string;
   group_society: Omit<CommonField, "value">;
@@ -440,7 +446,7 @@ export interface SocietyListEntity { //  LegalEntityAsAssociate ???
 
 export interface PhysicalPersonListEntity {  //  PhysicalPerson ???
   physical_person_link_id: number;  // c'est l'id de quoi? Pcq physical_person donne déjà l'id ???
-  physical_person: {  // à voir avec PhysicalPersonEnFR
+  physical_person: {
     id: number;
     firstname: string;
     name: string;
@@ -475,7 +481,7 @@ interface SocietyListEntityInFiliale extends Omit<SocietyListEntity, "society"> 
 export interface Filiale {
   filiale_associate_list: SocietyListEntityInFiliale[];
   // Ou bien:
-  // filiale_associate_list: Array< Omit<SocietyListEntity, "society"> & {
+  // filiale_associate_list: Array<Omit<SocietyListEntity, "society"> & {
   //   society: Omit<SimplifiedCompany, "society_id"> & { id: number };
   // }>;
 }
@@ -558,7 +564,7 @@ export interface FiscalFile {
 
   gestion_center: CommonField;
 
-  /**??? route: GET /society/{id}/fiscal_file*/
+  /**??? */
   info_bnc: {
     info_bnc_id: number;
     membership_year: string | null;
@@ -566,4 +572,81 @@ export interface FiscalFile {
   };
 
   society_status: FiscalFileGenericField;
+}
+
+export interface RIB {  //  Déplacer dans ./account.d.ts ???
+  rib_id: number;
+  diary_id: number;
+  diary_label: string;
+  society_id: number;
+  start_date: string;
+  iban: string;
+  bic: string;
+  is_default: boolean;
+}
+
+// Utilisé dans ./account.d.ts uniquement.
+// Pas trouvé de modèle sur Postman.
+// Pas trouvé de référence sur Confluence ni sur la doc partenaires.
+// vérifier que vat_type === VatType (GET/vat_param/vat_type)
+export interface VatParam { 
+  vat_param_id: number;
+  code: string;
+  account_ded: Except<Account, "counterpart_account">;
+  account_coll: Except<Account, "counterpart_account">;
+  vat: {
+    id: number;
+    rate: number;
+  };
+  vat_type: VatType;
+  vat_exigility: VatExigility;
+  blocked: boolean;
+}
+
+export interface VatType {  // Utilisé dans VatParam uniquement.
+  id: number;
+  label: string;
+}
+
+export interface VatExigility { // Utilisé dans VatParam uniquement.
+  id: number;
+  label: string;
+}
+
+export interface PaymentType {  //  account.d.ts ou society.d.ts?
+  payment_type_id: number;
+  name: string;
+  code: string;
+}
+
+export interface DiaryType {
+  ACH: 1,
+  VTE: 2,
+  BQ: 3,
+  CAISSE: 4,
+  OD: 5,
+  OD_AUDIT: 7,
+  A_EXT: 8,
+  EXT: 9,
+  AN: 10,
+  OD_PAIE: 11,
+  OD_LET: 12,
+  NDF: 13,
+  OD_DECL_FISCALE: 14,
+  OD_EXC: 15
+}
+
+export interface Diary<T = DiaryType> {
+  code: string;
+  name: string;
+  account: null | {
+    id: number;
+    label: string;
+    number: string;
+  };
+  blocked: boolean;
+  diary_id: number;
+  diary_type_id: T[keyof T];
+  diary_type_code: keyof T;
+  diary_type_name: string;
 }
