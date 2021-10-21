@@ -10,7 +10,7 @@ export interface CompanyField {
   value: string;
 }
 
-export interface CompanyInfo {
+export interface CompanyInfo {  //  fait
   ape: CompanyField | null;
   register: CompanyField | null;
   legal_form: CompanyField | null;
@@ -55,13 +55,13 @@ export interface CompanyInfo {
   close_entries_VAT: boolean;
 }
 
-export interface SocietiesArray {
+export interface SocietiesArray { //  fait
   row_numbers: number;
   pages_number: null;
   society_array: CompanyInfo[];
 }
 
-export interface Exercice {
+export interface Exercice { //  fait
   exercice_id: number;
   start_date: string;
   label: string;
@@ -75,7 +75,7 @@ export interface Exercice {
   closed_by: null | number;
 }
 
-export interface DiaryType {
+export interface DiaryType {  //  ???
   ACH: 1,
   VTE: 2,
   BQ: 3,
@@ -92,7 +92,7 @@ export interface DiaryType {
   OD_EXC: 15
 }
 
-export interface Diary<T = DiaryType> {
+export interface Diary<T = DiaryType> { //  ???
   code: string;
   name: string;
   account: null | {
@@ -107,13 +107,13 @@ export interface Diary<T = DiaryType> {
   diary_type_name: string;
 }
 
-export interface PaymentType {
+export interface PaymentType {  //  account.d.ts ou society.d.ts?
   payment_type_id: number;
   name: string;
   code: string;
 }
 
-export interface VatParam {
+export interface VatParam { // Utilisé dans ./account.d.ts uniquement.
   vat_param_id: number;
   code: string;
   account_ded: Except<Account, "counterpart_account">;
@@ -127,19 +127,19 @@ export interface VatParam {
   blocked: boolean;
 }
 
-export interface VatType {
+export interface VatType {  // Utilisé dans VatParam uniquement.
   id: number;
   label_vat_type: string;
   code: string;
 }
 
-export interface VatExigility {
+export interface VatExigility { // Utilisé dans VatParam uniquement.
   id: number;
   label: string;
   code: string;
 }
 
-export interface RIB {
+export interface RIB {  //  Déplacer dans ./account.d.ts ???
   rib_id: number;
   diary_id: number;
   diary_label: string;
@@ -150,14 +150,14 @@ export interface RIB {
   is_default: boolean;
 }
 
-interface FiscalFileGenericField {
+interface FiscalFileGenericField {  //  fait
   id: number;
   label?: string;
   value: string;
   effective_date?: string;
 }
 
-export interface FiscalFile {
+export interface FiscalFile { //  fait
   rof_tva: string;
   rof_tdfc: string;
   rof_cfe: string;
@@ -184,18 +184,18 @@ export interface FiscalFile {
   };
 }
 
-export interface ComptesEDI {
+export interface ComptesEDI { //  fait
   mail: string;
   libelle: string;
   id_compte_edi: number;
 }
 
-export interface SocietyAssociate {
+export interface SocietyAssociate { //  fait
   capital: Capital | null;
   associate_list: AssociateList;
 }
 
-export interface Capital {
+export interface Capital {  //  fait
   historical_id: number;
   date: string;
   capital: number;
@@ -203,12 +203,12 @@ export interface Capital {
   social_part_value: number;
 }
 
-export interface AssociateList {
+export interface AssociateList {  //  fait
   physical_person_list?: PhysicalPersonListEntity[] | null;
   society_list?: SocietyListEntity[] | null;
 }
 
-export interface PhysicalPersonListEntity {
+export interface PhysicalPersonListEntity { //  fait
   physical_person_link_id: number;
   physical_person: PhysicalPerson;
   signatory_function: SignatoryFunctionOrFunction;
@@ -218,25 +218,25 @@ export interface PhysicalPersonListEntity {
   social_part: SocialPart;
 }
 
-export interface PhysicalPerson {
+export interface PhysicalPerson { //  utilisé une seule fois...
   id: number;
   firstname: string;
   name: string;
 }
 
-export interface SignatoryFunctionOrFunction {
+export interface SignatoryFunctionOrFunction {  
   id: number;
   label: string;
 }
 
-export interface SocialPart {
+export interface SocialPart { //  fait
   PP: number;
   NP: number;
   US: number;
   percent: number;
 }
 
-export interface SocietyListEntity {
+export interface SocietyListEntity {  //  fait
   society_link_id: number;
   society: Society;
   signatory_function: SignatoryFunctionOrFunction;
@@ -245,7 +245,7 @@ export interface SocietyListEntity {
   social_part: SocialPart;
 }
 
-export interface Society {
+export interface Society {  //  fait: SimplifiedCompany
   id: number;
   name: string;
   siret: string;
