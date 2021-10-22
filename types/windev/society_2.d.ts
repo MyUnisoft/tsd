@@ -173,7 +173,19 @@ export interface Logo {
   baseURL: string;
 }
 
-export interface LegalForm {  //  route: GET /society/legal_form
+export interface Establishment {  //  d'après l'exemple sur postman actuellement
+  name: string;
+  siret: string;
+  address_number: string;
+  road_type: CommonField;
+  street_name: string;
+  postal_code: string;
+  country: string;
+  id_parent_society: number;
+  id_society: number;
+}
+
+export interface LegalForm {
   id: number;
   name: string;
 
@@ -297,7 +309,7 @@ export interface CompteEDI {
 }
 
 export type ResultRule = CommonField;
-export type Comptability = CommonField;
+export type ComptabilityType = CommonField;
 export type ComptabilityHeld = CommonField;
 
 export interface RedirectMails {
@@ -314,11 +326,13 @@ export interface RedirectMails {
   message_and_pj: string;
 }
 
-export interface WhiteList {
+export interface AuthorizedEmail {
   id: number;
   society_id: number;
   authorized_email: string;
 }
+
+export type WhiteList = AuthorizedEmail[];
 
 export interface HistoryOfSocietyStatus {
   history_status_id: number;
@@ -345,7 +359,7 @@ export interface User {
   id_pers_physique: number;
 }
 
-export interface SocietyComptability {
+export interface Comptability {
   customer_waiting_account: string;
   accounting_firm_waiting_account: string;
   
@@ -611,6 +625,18 @@ export interface VatType {  // Utilisé dans VatParam uniquement.
 export interface VatExigility { // Utilisé dans VatParam uniquement.
   id: number;
   label: string;
+}
+
+export interface VatRegime {  //  postman
+  id: string;
+  name: string;
+  code: string;
+}
+
+export interface RegimeImpot {  //  postman
+  id: string;
+  name: string;
+  code: string;
 }
 
 export interface PaymentType {  //  account.d.ts ou society.d.ts?
