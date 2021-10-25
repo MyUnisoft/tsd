@@ -196,12 +196,13 @@ export interface AccountEntries {
   }
 }
 
-export interface RIB {  //  Déplacer dans ./account.d.ts ???
+export interface RIB {
   rib_id: number;
   diary_id: number;
   diary_label: string;
   society_id: number;
   start_date: string;
+  owner: string;
   iban: string;
   bic: string;
   is_default: boolean;
