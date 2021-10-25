@@ -80,7 +80,7 @@ export interface Iban {
 
 export interface PaymentType {
   payment_type_id: number;
-  label: string;
+  name: string;
   code: string;
 }
 
