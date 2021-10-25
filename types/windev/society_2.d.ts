@@ -1,6 +1,6 @@
-import { PaymentDeadline } from "./account";
 // Import Internal Dependencies
 import { Account } from "./account";
+import { PaymentDeadline } from "./account";
 
 // Import Third-party Dependencies
 import { Except } from "type-fest";
@@ -617,30 +617,24 @@ export interface VatParam {
   blocked: boolean;
 }
 
-export interface VatType {  // Utilisé dans VatParam uniquement.
+export interface VatType {
   id: number;
   label: string;
 }
 
-export interface VatExigility { // Utilisé dans VatParam uniquement.
+export interface VatExigility {
   id: number;
   label: string;
 }
 
-export interface VatRegime {  //  postman
-  id: string;
+export interface VatRegime {
+  id: number;
   name: string;
   code: string;
 }
 
-export interface RegimeImpot {  //  postman
-  id: string;
-  name: string;
-  code: string;
-}
-
-export interface PaymentType {  //  account.d.ts ou society.d.ts?
-  payment_type_id: number;
+export interface RegimeImpot {
+  id: number;
   name: string;
   code: string;
 }
@@ -665,6 +659,7 @@ export interface DiaryType {
 export interface Diary<T = DiaryType> {
   code: string;
   name: string;
+  closed: boolean;
   account: null | {
     id: number;
     label: string;
