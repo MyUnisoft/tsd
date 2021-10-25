@@ -1,13 +1,22 @@
-// Import Internal
+// Import Internal Dependencies
 import { PJ } from "./document";
-import { VatParam } from "./society";
 import { Account } from "../regular";
 import { DeepNullable } from "../utils";
+import { 
+  VatParam,
+  VatExigility,
+  VatType
+} from "./vat";
 
 // Import Third-Party dependencies
 import { Except, RequireAtLeastOne } from "type-fest";
 
-export { Account };
+export {
+  Account,
+  VatParam,
+  VatExigility,
+  VatType
+};
 
 export interface SimplifiedAccount extends Account {
   array_counterpart_account?: CounterpartAccountLine[] | null;
@@ -185,4 +194,15 @@ export interface AccountEntries {
     number: string;
     label: string;
   }
+}
+
+export interface RIB {  //  Déplacer dans ./account.d.ts ???
+  rib_id: number;
+  diary_id: number;
+  diary_label: string;
+  society_id: number;
+  start_date: string;
+  iban: string;
+  bic: string;
+  is_default: boolean;
 }
