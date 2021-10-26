@@ -2,7 +2,6 @@
 import {
   Account,
   PaymentDeadline,
-  PaymentType,
   RIB
 } from "./account";
 
@@ -16,7 +15,6 @@ import {
 export {
   Account,
   PaymentDeadline,
-  PaymentType,
   VatParam,
   VatExigility,
   VatType,
@@ -30,7 +28,7 @@ interface CommonField {
   value: string;
 }
 
-export interface SocietiesArray {  //  Companies ???
+export interface SocietiesArray {
   row_numbers: number;
   pages_number: number | null;
   society_array: CompanyInfo[];
@@ -216,7 +214,7 @@ export interface GestionCenter {
   center_gestion_id: number;
   name: string;
   adress_number: string;
-  repetition_indice: string;  //  voir ce param sur postman ...
+  repetition_indice: string;
   adress_complement: string;
   postal_code: string;
   city: string;
@@ -234,7 +232,7 @@ export type GestionCenters = GestionCenter[];
 // pour le sdk?
 export type ListOfStatus = "En activité" | "Sans activité" | "Mise en sommeil" | "Redressement judiciaire" | "Liquidation amiable" | "Liquidation Judiciaire" | "Dissolution";
 
-export interface Status { //  ReferenceOfSocietyStatus ???
+export interface Status {
   id: number;
   name: ListOfStatus;
 }
@@ -261,32 +259,7 @@ export interface APE {  //  types\windev\account.d.ts
   code: string;
 }
 
-// GET/exercices et GET/society/exercice renvoient la même chose mais pas au même format. 
-// GET/exercices n'est pas dans la doc.
-// export interface Exercice {
-//   // blocked: boolean; N'apparait pas sur Postman
-//   exercice_id: number;
-//   start_date: string;
-//   end_date: string;
-
-//   /**Label de l'exercice ( N-1, N, N+1 etc..). ??? */
-//   label: string;
-
-//   result: number;
-
-//   /**Chiffre d'affaire sur l'exercice. */
-//   ca: number;
-//   closed: boolean;
-//   duration: number;
-//   closed_at: null | string;
-
-//   /**ID de la personne qui a clotûré l'exercice. */
-//   closed_by: null | number;
-// }
-
-// route: GET /society/exercice
 export interface Exercice {
-  // blocked: boolean; N'apparait pas sur Postman
   exercice_id: number;
   start_date: string;
   end_date: string;
@@ -468,7 +441,7 @@ export interface Capital {
 }
 
 /**Personne morale. */
-export interface SocietyListEntity { //  LegalEntityAsAssociate ???
+export interface SocietyListEntity {
   society_link_id: number;
   society: SimplifiedCompany;
   signatory_function: Omit<CommonField, "value"> | null;
@@ -477,8 +450,8 @@ export interface SocietyListEntity { //  LegalEntityAsAssociate ???
   social_part: SocialPart;
 }
 
-export interface PhysicalPersonListEntity {  //  PhysicalPerson ???
-  physical_person_link_id: number;  // c'est l'id de quoi? Pcq physical_person donne déjà l'id ???
+export interface PhysicalPersonListEntity {
+  physical_person_link_id: number;  // ???
   physical_person: {
     id: number;
     firstname: string;
@@ -507,7 +480,7 @@ export interface SocialPart {
   percent: number;
 }
 
-interface SocietyListEntityInFiliale extends Omit<SocietyListEntity, "society"> {
+export interface SocietyListEntityInFiliale extends Omit<SocietyListEntity, "society"> {
   society: Omit<SimplifiedCompany, "society_id"> & { id: number };
 }
 
@@ -519,7 +492,7 @@ export interface Filiale {
   // }>;
 }
 
-export interface SocietyFromGouvAPI { //  Mélange de Company et CompanyInfo...
+export interface SocietyFromDataGouv {
   name: string;
   address_number: string;
   address_bis: string;
@@ -644,4 +617,10 @@ export interface Diary<T = DiaryType> {
   diary_type_id: T[keyof T];
   diary_type_code: keyof T;
   diary_type_name: string;
+}
+
+export interface PaymentType {
+  payment_type_id: number;
+  name: string;
+  code: string;
 }
