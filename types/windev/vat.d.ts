@@ -6,11 +6,6 @@ import { Account } from "../regular";
 // Import Third-Party dependencies
 import { Except } from "type-fest";
 
-
-// Utilisé dans ./account.d.ts uniquement.
-// Pas trouvé de modèle sur Postman.
-// Pas trouvé de référence sur Confluence ni sur la doc partenaires.
-// vérifier que vat_type === VatType (GET/vat_param/vat_type)
 export interface VatParam { 
   vat_param_id: number;
   code: string;
@@ -27,12 +22,14 @@ export interface VatParam {
 
 export interface VatType {
   id: number;
-  label: string;
+  label_vat_type: string;
+  code: string;
 }
 
 export interface VatExigility {
   id: number;
   label: string;
+  code: string;
 }
 
 export interface VatRegime {
