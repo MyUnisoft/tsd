@@ -89,7 +89,7 @@ export interface Iban {
 
 export interface PaymentType {
   payment_type_id: number;
-  name: string;
+  label: string;
   code: string;
 }
 
@@ -98,7 +98,7 @@ export interface PaymentDeadline {
   label: string;
   number_of_days: number;
   end_month: boolean;
-  day_number: number;
+  day_number: number | null;
 }
 
 export interface Ape {
