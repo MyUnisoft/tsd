@@ -78,9 +78,7 @@ export interface CompanyInfo {
   /**??? */
   companyType: string;
 
-  /**Adresse mail de contact pour les liasses. TYPE NULL ? Pas encore utile?
-   * J'ai prit la liberté d'ajouter le type string...
-   */
+  /**Adresse mail de contact pour les liasses. */
   mail_liasse: string | null;
 
   postal_code: string;
@@ -258,7 +256,7 @@ export interface Register {
   name: ListOfRegisterName;
 }
 
-export interface APE {  //  types\windev\account.d.ts
+export interface APE {
   id: number;
   name: string;
 
@@ -475,7 +473,7 @@ export interface AssociateList {
   society_list: SocietyListEntity[];
 }
 
-export interface SocietyAssociate {  //  AssociateAndCapital ???
+export interface SocietyAssociate {
   capital: Capital;
   associate_list: AssociateList;
 }
@@ -559,14 +557,19 @@ export interface FiscalFile {
   /**Adresse mail de contact pour les liasses fiscales. */
   mail_liasse: string;
 
+  fiscal_integration: boolean;  //postman
+
+  head_group_if: boolean; //postman
+
+  start_date_if: string;  //postman
+
+  end_date_if: string;  //postman
+
   /**Référence régime d'imposition. */
   sheet_group: CommonField;
 
   /**Référence bilan société. */
   bilan: CommonField;
-
-  /**??? */
-  regime_impot: CommonField;
 
   /**Régime TVA. */
   vat_regime: CommonField;
