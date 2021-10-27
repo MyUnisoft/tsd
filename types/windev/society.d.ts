@@ -22,7 +22,7 @@ export {
   RIB
 }
 
-interface CommonField {
+export interface CommonField {
   id: number;
   label: string;
   value: string;
@@ -190,7 +190,7 @@ export interface Logo {
   baseURL: string;
 }
 
-export interface Establishment {  //  d'après l'exemple sur postman actuellement
+export interface Establishment {
   name: string;
   siret: string;
   address_number: string;
@@ -219,12 +219,11 @@ export interface GestionCenter {
   postal_code: string;
   city: string;
   siret: string;
+  road_type_id: number;
 
   /**Numéro d'agrément du centre de gestion. */
   num_agrement: number;
 
-  /**Identifiant */
-  road_type_id: number;
 }
 
 export type GestionCenters = GestionCenter[];
@@ -239,12 +238,20 @@ export interface Status {
 
 // pour le sdk?
 export type ListOfRegisterName =
-"AGEN" | "AIX-EN-PROVENCE" | "AJACCIO" | "ALBI" | "ALENCON" | "AMIENS" | "ANGERS" | "ANGOULEME" | "ANNECY" |
-"ANTIBES" | "ARRAS" | "AUBENAS" | "AUCH" | "AURILLAC" | "AUXERRE" | "AVIGNON" | "BAR-LE-DUC" | "BASSE-TERRE" |
-"BASTIA" | "BAYONNE" | "BEAUVAIS" | "BELFORT" | "BERGERAC" | "BERNAY" | "BESANCON" | "BEZIERS" | "BLOIS" |
-"BOBIGNY" | "BORDEAUX" | "BOULOGNE-SUR-MER" | "BOURG-EN-BRESSE" | "BOURGES" | "BREST" | "BRIEY" | "BRIVE" | "CAEN" |
-"CAHORS" | "CANNES" | "CARCASSONNE" | "CASTRES" | "CAYENNE" | "CHALONS-EN-CHAMPAGNE" | "CHALON-SUR-SAONE" | "CHAMBERY" | "CHARTRES" |
-"CHATEAUROUX" | "CHAUMONT" | "CHERBOURG" | "CLERMONT-FERRAND" | "COLMAR";
+"AGEN" | "AIX-EN-PROVENCE" | "AJACCIO" | "ALBI" | "ALENCON" | "AMIENS" | "ANGERS" | "ANGOULEME" | "ANNECY" | "ANTIBES" | "ARRAS" | 
+"AUBENAS" | "AUCH" | "AURILLAC" | "AUXERRE" | "AVIGNON" | "BAR-LE-DUC" | "BASSE-TERRE" | "BASTIA" | "BAYONNE" | "BEAUVAIS" | "BELFORT" | 
+"BERGERAC" | "BERNAY" | "BESANCON" | "BEZIERS" | "BLOIS" | "BOBIGNY" | "BORDEAUX" | "BOULOGNE-SUR-MER" | "BOURG-EN-BRESSE" | "BOURGES" | "BREST" | 
+"BRIEY" | "BRIVE" | "CAEN" | "CAHORS" | "CANNES" | "CARCASSONNE" | "CASTRES" | "CAYENNE" | "CHALONS-EN-CHAMPAGNE" | "CHALON-SUR-SAONE" | "CHAMBERY" | 
+"CHARTRES" | "CHATEAUROUX" | "CHAUMONT" | "CHERBOURG" | "CLERMONT-FERRAND" | "COLMAR" | "COMPIEGNE" | "COUTANCES" | "CRETEIL" | "CUSSET" | "DAX" | 
+"DIEPPE" | "DIJON" | "DOUAI" | "DRAGUIGNAN" | "DUNKERQUE" | "EPINAL" | "EVREUX" | "EVRY" | "FOIX" | "FORT-DE-FRANCE" | "FREJUS" | 
+"GAP" | "GRASSE" | "GRENOBLE" | "GUERET" | "LA ROCHELLE" | "LA ROCHE-SUR-YON" | "LAVAL" | "LE HAVRE" | "LE MANS" | "LE PUY-EN-VELAY" | "LIBOURNE" | 
+"LILLE METROPOLE" | "LIMOGES" | "LISIEUX" | "LONS-LE-SAUNIER" | "LORIENT" | "LYON" | "MACON" | "MAMOUDZOU" | "MANOSQUE" | "MARSEILLE" | "MEAUX" | 
+"MELUN" | "MENDE" | "METZ" | "MONTAUBAN" | "MONT-DE-MARSAN" | "MONTLUCON" | "MONTPELLIER" | "MULHOUSE" | "NANCY" | "NANTERRE" | "NANTES" | 
+"NARBONNE" | "NERAC" | "NEVERS" | "NICE" | "NIMES" | "NIORT" | "ORLEANS" | "PARIS" | "PAU" | "PERIGUEUX" | "PERPIGNAN" | 
+"POINTE-A-PITRE" | "POITIERS" | "PONTOISE" | "QUIMPER" | "REIMS" | "RENNES" | "ROANNE" | "RODEZ" | "ROMANS" | "ROUEN" | "SAINT-BRIEUC" | 
+"SAINT-DENIS-DE-LA-REUNION" | "SAINTES" | "SAINT-ETIENNE" | "SAINT MALO" | "SAINT-NAZAIRE" | "SAINT-PIERRE-DE-LA-REUNION" | "SAINT-QUENTIN" | "SALON-DE-PROVENCE" | "SARREGUEMINES" | "SAVERNE" | "SEDAN" | 
+"SENS" | "SOISSONS" | "STRASBOURG" | "TARASCON" | "TARBES" | "THIONVILLE" | "THONON-LES-BAINS" | "TOULON" | "TOULOUSE" | "TOURS" | "TROYES" | 
+"VALENCIENNES" | "VANNES" | "VERSAILLES" | "VESOUL" | "VIENNE" | "VILLEFRANCHE-TARARE";
 
 export interface Register {
   id: number;
@@ -421,7 +428,7 @@ export interface Comptability {
   diary_purchases: Omit<CommonField, "value">;
   diary_sales: Omit<CommonField, "value">;
 
-  /**Journal OD. ???*/
+  /**Journal OD. */
   diary_dotation: Omit<CommonField, "value"> | null;
 
   expense_report: Omit<CommonField, "value">;
@@ -442,7 +449,7 @@ export interface Capital {
 
 /**Personne morale. */
 export interface SocietyListEntity {
-  society_link_id: number;
+  society_link_id: number;  // ???
   society: SimplifiedCompany;
   signatory_function: Omit<CommonField, "value"> | null;
   start_date: string;
@@ -459,7 +466,7 @@ export interface PhysicalPersonListEntity {
   };
   function: Omit<CommonField, "value">;
   start_date: string;
-  end_date: string | null;  // à voir pour le type null
+  end_date: string | null;
   social_part: SocialPart;
 }
 
@@ -486,10 +493,6 @@ export interface SocietyListEntityInFiliale extends Omit<SocietyListEntity, "soc
 
 export interface Filiale {
   filiale_associate_list: SocietyListEntityInFiliale[];
-  // Ou bien:
-  // filiale_associate_list: Array<Omit<SocietyListEntity, "society"> & {
-  //   society: Omit<SimplifiedCompany, "society_id"> & { id: number };
-  // }>;
 }
 
 export interface SocietyFromDataGouv {
