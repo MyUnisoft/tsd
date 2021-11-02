@@ -48,7 +48,6 @@ export interface CompanyInfo {
 
   siret: string | null;
 
-  /**??? */
   status: string;
 
   /**Adresse complète. */
@@ -69,13 +68,10 @@ export interface CompanyInfo {
   /**Complément d'adresse. */
   complement: string | null;
 
-  /**??? */
-  coordonnee: any[];
 
+  coordonnee: Coordonnee[];
   society_id: number;
   address_bis: string | null;
-
-  /**??? */
   companyType: string;
 
   /**Adresse mail de contact pour les liasses. */
@@ -91,15 +87,15 @@ export interface CompanyInfo {
 
   address_number: number;
   id_type_company: number;
-
-  /**https://docs.api.myunisoft.fr/#d3a15975-5b40-48d7-b4ea-1460fa34da50 ??? */
   folder_reference: string;
 
   /**Code [Insee](https://fr.wikipedia.org/wiki/Code_Insee). */
   insee: string;
+  
+  enable_quantity: boolean;
 }
 
-export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" | "address_number" | "complement"> {
+export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" | "address_number"> {
 
   /**Code [APE](https://www.insee.fr/fr/information/2406147). */
   ape: CommonField | null;
@@ -148,17 +144,18 @@ export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" 
   address_number: string;
 
   /**Identifiant de l'expert comptable de la société. */
-  id_accountant: PhysicalPersonEnFR | null;
+  id_accountant: number | null;
+  accountant: PhysicalPersonEnFR;
 
   /**Identitfiant du responsable de mission de la société. */
-  id_rm: PhysicalPersonEnFR | null;
+  id_rm: number | null;
+  rm: PhysicalPersonEnFR | null;
 
-  id_collab: PhysicalPersonEnFR | null;
+  id_collab: number | null;
+  collab: PhysicalPersonEnFR | null;
+
   adherent_code: string;
   logo: Logo | null;
-
-  /**Complément d'adresse. */
-  complement: string;
 
   id_centre_gestion: number | null;
 
@@ -170,6 +167,10 @@ export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" 
 
   /**Clotûre automatique des écritures lors de l'envoi de la TVA. */
   close_entries_VAT: boolean;
+
+  axe: CommonField | null;
+
+  formule_code: string;
 }
 
 export interface PhysicalPersonEnFR { //  Nom temporaire.
@@ -186,6 +187,10 @@ export interface Logo {
   thumbnail: string;
   download: string;
   baseURL: string;
+}
+
+export interface Coordonnee extends CommonField {
+  type: CommonField;
 }
 
 export interface Establishment {
@@ -211,9 +216,9 @@ export interface LegalForm {
 export interface GestionCenter {  
   center_gestion_id: number;
   name: string;
-  adress_number: string;
+  address_number: string;
   repetition_indice: string;
-  adress_complement: string;
+  address_complement: string;
   postal_code: string;
   city: string;
   siret: string;
@@ -247,9 +252,9 @@ export type ListOfRegisterName =
 "MELUN" | "MENDE" | "METZ" | "MONTAUBAN" | "MONT-DE-MARSAN" | "MONTLUCON" | "MONTPELLIER" | "MULHOUSE" | "NANCY" | "NANTERRE" | "NANTES" | 
 "NARBONNE" | "NERAC" | "NEVERS" | "NICE" | "NIMES" | "NIORT" | "ORLEANS" | "PARIS" | "PAU" | "PERIGUEUX" | "PERPIGNAN" | 
 "POINTE-A-PITRE" | "POITIERS" | "PONTOISE" | "QUIMPER" | "REIMS" | "RENNES" | "ROANNE" | "RODEZ" | "ROMANS" | "ROUEN" | "SAINT-BRIEUC" | 
-"SAINT-DENIS-DE-LA-REUNION" | "SAINTES" | "SAINT-ETIENNE" | "SAINT MALO" | "SAINT-NAZAIRE" | "SAINT-PIERRE-DE-LA-REUNION" | "SAINT-QUENTIN" | "SALON-DE-PROVENCE" | "SARREGUEMINES" | "SAVERNE" | "SEDAN" | 
-"SENS" | "SOISSONS" | "STRASBOURG" | "TARASCON" | "TARBES" | "THIONVILLE" | "THONON-LES-BAINS" | "TOULON" | "TOULOUSE" | "TOURS" | "TROYES" | 
-"VALENCIENNES" | "VANNES" | "VERSAILLES" | "VESOUL" | "VIENNE" | "VILLEFRANCHE-TARARE";
+"SAINT-DENIS-DE-LA-REUNION" | "SAINTES" | "SAINT-ETIENNE" | "SAINT MALO" | "SAINT-NAZAIRE" | "SAINT-PIERRE-DE-LA-REUNION" | "SAINT-QUENTIN" |
+"SALON-DE-PROVENCE" | "SARREGUEMINES" | "SAVERNE" | "SEDAN" | "SENS" | "SOISSONS" | "STRASBOURG" | "TARASCON" | "TARBES" | "THIONVILLE" |
+"THONON-LES-BAINS" | "TOULON" | "TOULOUSE" | "TOURS" | "TROYES" | "VALENCIENNES" | "VANNES" | "VERSAILLES" | "VESOUL" | "VIENNE" | "VILLEFRANCHE-TARARE";
 
 export interface Register {
   id: number;
@@ -269,7 +274,7 @@ export interface Exercice {
   start_date: string;
   end_date: string;
 
-  /**Label de l'exercice ( N-1, N, N+1 etc..). ??? */
+  /**Label de l'exercice ( N-1, N, N+1 etc..). */
   label: string;
 
   result: number;
@@ -410,7 +415,7 @@ export interface Comptability {
   /**Durée annuelle pour le calcul de l'amortissement. */
   annual_depreciation_period: number;
 
-  /**Identifiant du journal OD par défaut. OD ??? */
+  /**Identifiant du journal OD par défaut. */
   diary_dotation_id: number | null;
 
   /**Référence Comptabilité en DB. */
@@ -557,13 +562,13 @@ export interface FiscalFile {
   /**Adresse mail de contact pour les liasses fiscales. */
   mail_liasse: string;
 
-  fiscal_integration: boolean;  //postman
+  fiscal_integration: boolean;  //postman ???
 
-  head_group_if: boolean; //postman
+  head_group_if: boolean; //postman ???
 
-  start_date_if: string;  //postman
+  start_date_if: string;  //postman ???
 
-  end_date_if: string;  //postman
+  end_date_if: string;  //postman ???
 
   /**Référence régime d'imposition. */
   sheet_group: CommonField;
