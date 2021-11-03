@@ -45,3 +45,14 @@ export interface RepartitionKey {
   condition: string;
   id_axe: number;
 }
+
+export type RepartitionKeys = RepartitionKey[];
+
+export interface RateOfRepartitionKey {
+  id_section_from_key: number;
+  id_section: number;
+  id_repartition_key: number;
+  rate: number;
+}
+
+export type RateOfRepartitionKeyArray = RateOfRepartitionKey[];
