@@ -56,3 +56,21 @@ export interface RateOfRepartitionKey {
 }
 
 export type RateOfRepartitionKeyArray = RateOfRepartitionKey[];
+
+export interface RepartitionInfo {
+  code: string;
+  rate: number;
+  label: string;
+  amount: number;
+  id_section: number;
+  id_reparition: null;  //  ???
+}
+
+export interface Repartition {
+  id_axe: number;
+  code: string;
+  label: string;
+  repartition : RepartitionInfo[];
+}
+
+export type Repartitions = Repartition;
