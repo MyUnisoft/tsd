@@ -73,4 +73,4 @@ export interface Repartition {
   repartition : RepartitionInfo[];
 }
 
-export type Repartitions = Repartition;
+export type Repartitions = Repartition[];
