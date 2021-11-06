@@ -63,7 +63,7 @@ export interface RepartitionInfo {
   label: string;
   amount: number;
   id_section: number;
-  id_reparition: null;  //  ???
+  id_reparition: number | null;
 }
 
 export interface Repartition {
