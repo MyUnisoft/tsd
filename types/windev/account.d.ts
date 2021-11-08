@@ -78,18 +78,20 @@ export interface ComplementaryInformations {
 
 export interface DetailedAccountV2 extends DetailedAccount {
   id_tva: null | number;
-  quantities: {
-    quantity: {
-      code: string;
-      label: string;
-      id_unit: number;
-    };
-    mandatory: boolean;
-    occurrence: number;
-    id_assignment: number;
-  }[];
+  quantities: Quantity[];
   param_vat_id: null | number;
   id_compte_contrepart: null | number;
+}
+
+export interface Quantity {
+  quantity: {
+    code: string;
+    label: string;
+    id_unit: number;
+  };
+  mandatory: boolean;
+  occurrence: number;
+  id_assignment: number;
 }
 
 export interface Iban {
