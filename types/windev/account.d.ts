@@ -3,19 +3,14 @@ import { PJ } from "./document";
 import { Account } from "../regular";
 import { DeepNullable } from "../utils";
 import { 
-  VatParam,
-  VatExigility,
-  VatType
+  VatParam
 } from "./vat";
 
 // Import Third-Party dependencies
 import { Except, RequireAtLeastOne } from "type-fest";
 
 export {
-  Account,
-  VatParam,
-  VatExigility,
-  VatType
+  Account
 };
 
 export interface SimplifiedAccount extends Account {

@@ -1,26 +1,7 @@
 // Import Internal Dependencies
 import {
-  Account,
-  PaymentDeadline,
-  RIB
+  PaymentDeadline
 } from "./account";
-
-import {
-  VatParam,
-  VatType,
-  VatExigility,
-  VatRegime
-} from "./vat";
-
-export {
-  Account,
-  PaymentDeadline,
-  VatParam,
-  VatExigility,
-  VatType,
-  VatRegime,
-  RIB
-}
 
 export interface CommonField {
   id: number;
