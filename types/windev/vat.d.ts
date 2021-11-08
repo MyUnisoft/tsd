@@ -1,5 +1,3 @@
-//  regular.d.ts ?
-
 // Import Internal Dependencies
 import { Account } from "../regular";
 
