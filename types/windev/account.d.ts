@@ -41,6 +41,8 @@ export interface AccountDetails {
   vat_param: VatParam;
   array_counterpart_account: CounterpartAccountLine[];
   complementary_informations: ComplementaryInformations;
+  society_id: number;
+  closed: boolean;
 }
 
 export interface ComplementaryInformations {
@@ -65,13 +67,29 @@ export interface ComplementaryInformations {
   lastname: string;
   type_info_compte_tiers: number;
   iban_list: Iban[];
-  typevoie: TypeVoie;
+  way_type: WayType;
   amount_type_paid: AmountTypePaid;
   ape: Ape;
   id_payment_deadline: number;
   payment_deadline: PaymentDeadline;
   payment_type_id: number;
   payment_type: PaymentType;
+}
+
+export interface DetailedAccountV2 extends DetailedAccount {
+  id_tva: null | number;
+  quantities: {
+    quantity: {
+      code: string;
+      label: string;
+      id_unit: number;
+    };
+    mandatory: boolean;
+    occurrence: number;
+    id_assignment: number;
+  }[];
+  param_vat_id: null | number;
+  id_compte_contrepart: null | number;
 }
 
 export interface Iban {
@@ -103,9 +121,9 @@ export interface Ape {
   info: string;
 }
 
-export interface TypeVoie {
-  id_type_voie: number;
-  lib: string;
+export interface WayType {
+  way_type_id: number;
+  label: string;
 }
 
 export interface AmountTypePaid {
@@ -113,7 +131,7 @@ export interface AmountTypePaid {
   label: string;
 }
 
-export type UpdateAccountParams = RequireAtLeastOne<UpdateAccount, "account_number"|"label">
+export type UpdateAccountParams = RequireAtLeastOne<UpdateAccount, "account_number" | "label">
 
 export interface UpdateAccount {
   account_id: number;
@@ -166,21 +184,27 @@ export interface AccountEntryLine {
   debit: null | number;
   credit: null | number;
   solde: number;
-  lettrage: any;
+  lettrage: string;
   comment: boolean;
   pj_list: PJ[];
-  payment_type: null | number;
+  payment_type: null | {
+    id_type_reglement: number;
+    nom: string;
+  };
   deadline: null | string;
   added_date: string;
-  period_from: null | string;
-  period_to: null | string;
   closed: boolean;
-  flags: any;
+  flags: any | null;
+  dotted: boolean;
+  is_an: boolean;
+  creator: {
+    id: number;
+    firstname: string;
+    name: string;
+  }
 }
 
 export interface AccountEntries {
-  rows_number: number;
-  pages_number: number;
   total_debit: number;
   total_credit: number;
   list_entries_line: AccountEntryLine[];
@@ -201,4 +225,29 @@ export interface RIB {
   iban: string;
   bic: string;
   is_default: boolean;
+}
+
+export interface NextLettering {
+  next_lettering: string;
+}
+
+export interface AccountBalance {
+  balance: number;
+}
+
+export interface UnbalancedLettering {
+  id_compte: number;
+  intitule: string;
+  no_compte: string;
+  value: number;
+  lettrage: string;
+}
+
+export interface AccountRevision {
+  hasComment: boolean;
+  validation: {
+    VRM: string;
+    VCOL: string;
+    VSUP: string;
+  }
 }
