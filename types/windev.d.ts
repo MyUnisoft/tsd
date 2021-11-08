@@ -6,6 +6,7 @@ import * as Society from "./windev/society";
 import * as User from "./windev/user";
 import * as ThirdParty from "./windev/thirdparty";
 import * as Analytique from "./windev/analytique"
+import * as Vat from "./windev/vat"
 
 export {
   Account,
@@ -15,5 +16,6 @@ export {
   Entry,
   Society,
   User,
-  Analytique
+  Analytique,
+  Vat
 }

@@ -1,13 +1,17 @@
-// Import Internal
+// Import Internal Dependencies
 import { PJ } from "./document";
-import { VatParam } from "./society";
 import { Account } from "../regular";
 import { DeepNullable } from "../utils";
+import { 
+  VatParam
+} from "./vat";
 
 // Import Third-Party dependencies
 import { Except, RequireAtLeastOne } from "type-fest";
 
-export { Account };
+export {
+  Account
+};
 
 export interface SimplifiedAccount extends Account {
   array_counterpart_account?: CounterpartAccountLine[] | null;
@@ -89,7 +93,7 @@ export interface PaymentDeadline {
   label: string;
   number_of_days: number;
   end_month: boolean;
-  day_number: number;
+  day_number: number | null;
 }
 
 export interface Ape {
@@ -185,4 +189,16 @@ export interface AccountEntries {
     number: string;
     label: string;
   }
+}
+
+export interface RIB {
+  rib_id: number;
+  diary_id: number;
+  diary_label: string;
+  society_id: number;
+  start_date: string;
+  owner: string;
+  iban: string;
+  bic: string;
+  is_default: boolean;
 }
