@@ -2,7 +2,7 @@ export type Label =
 "OCR MyUnisoft" | "OCR Premium" | "Silae" | "EDOC" | "JEPILOTE" | "YOOZ" | "EBP" | "Tipisoft" | "Tiime" |
 "Imbolc Systems" | "Quickbooks" | "IDOCUS" | "Qonto" | "Jenji" | "EMASPHERE" | "Agora" | "TransferBanque" | "Smartisi " |
 "Skwarel " | "MYCOMPANYFILES" | "TBC Solutions" | "AXONAUT" | "AUCTAM" | "REGATE" | "EXACT" | "Evoliz" | "LEANPAY" |
-"FACTOMOS" | "RCA" | "YTEMS" | "INTIA" | "GCOLLECT" | "NewLogUp" | "Dext";
+"FACTOMOS" | "RCA" | "YTEMS" | "INTIA" | "GCOLLECT" | "NewLogUp" | "Dext" | "INFast";
 
 export interface Connector {
   id_connector: number;
