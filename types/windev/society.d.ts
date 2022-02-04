@@ -273,7 +273,9 @@ export interface Exercice {
   review_model: {
     label: string;
     id_review_model: number;
-  }
+  };
+
+  lettering_method_id: number;
 }
 
 export type CurrentExercice = Omit<Exercice, "exercice_id" | "result" | "review_model"> & {
