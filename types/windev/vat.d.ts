@@ -20,7 +20,7 @@ export interface VatParam {
 
 export interface VatType {
   id: number;
-  label_vat_type: string;
+  label: string;
   code: string;
 }
 
