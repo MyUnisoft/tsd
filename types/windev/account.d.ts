@@ -173,7 +173,7 @@ export interface UpdateComplementaryInfo {
   country?: string;
 }
 
-interface PJ {
+interface CloudDocument {
   document_id: number;
   name: string;
 
@@ -207,7 +207,7 @@ export interface AccountEntryLine {
   solde: number;
   lettrage: string;
   comment: boolean;
-  pj_list: PJ[];
+  pj_list: CloudDocument[];
   payment_type: null | {
     id_type_reglement: number;
     nom: string;
