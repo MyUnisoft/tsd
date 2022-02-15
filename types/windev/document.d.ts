@@ -31,18 +31,6 @@ export interface PJ {
     "text/plain";
 }
 
-export interface Attachment {
-  etat: boolean;
-  document_id: number;
-  date_time: string;
-  name: string;
-  token: string;
-  link: string;
-  thumbnail: string;
-  download: string;
-  baseURL: string;
-}
-
 export interface CloudDocument {
   document_id: number;
   name: string;
@@ -61,4 +49,9 @@ export interface CloudDocument {
 
   /** URL de téléchargement du document */
   download: string;
+}
+
+export interface Attachment extends CloudDocument {
+  date_time: string;
+  etat: boolean;
 }
