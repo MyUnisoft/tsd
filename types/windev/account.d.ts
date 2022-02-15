@@ -1,5 +1,4 @@
 // Import Internal Dependencies
-import { PJ } from "./document";
 import { Account } from "../regular";
 import { DeepNullable } from "../utils";
 import { 
@@ -172,6 +171,26 @@ export interface UpdateComplementaryInfo {
   postal_code?: string;
   city?: string;
   country?: string;
+}
+
+interface PJ {
+  document_id: number;
+  name: string;
+
+  /** Token de partage du document. */
+  token: string;
+
+  /** Adresse du serveur. */
+  baseUrl: string;
+
+  /** Miniature. */
+  thumbnail: string;
+
+  /** URL du document */
+  link: string;
+
+  /** URL de téléchargement du document */
+  download: string;
 }
 
 export interface AccountEntryLine {
