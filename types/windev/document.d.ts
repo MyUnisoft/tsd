@@ -42,3 +42,23 @@ export interface Attachment {
   download: string;
   baseURL: string;
 }
+
+export interface CloudDocument {
+  document_id: number;
+  name: string;
+
+  /** Token de partage du document. */
+  token: string;
+
+  /** Adresse du serveur. */
+  baseUrl: string;
+
+  /** Miniature. */
+  thumbnail: string;
+
+  /** URL du document */
+  link: string;
+
+  /** URL de téléchargement du document */
+  download: string;
+}
