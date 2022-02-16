@@ -1,5 +1,5 @@
 // Import Internal Dependencies
-import { PJ } from "./document";
+import { CloudDocument } from "./document";
 import { Account } from "../regular";
 import { DeepNullable } from "../utils";
 import { 
@@ -188,7 +188,7 @@ export interface AccountEntryLine {
   solde: number;
   lettrage: string;
   comment: boolean;
-  pj_list: PJ[];
+  pj_list: CloudDocument[];
   payment_type: null | {
     id_type_reglement: number;
     nom: string;

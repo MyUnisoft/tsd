@@ -31,14 +31,27 @@ export interface PJ {
     "text/plain";
 }
 
-export interface Attachment {
-  etat: boolean;
+export interface CloudDocument {
   document_id: number;
-  date_time: string;
   name: string;
+
+  /** Token de partage du document. */
   token: string;
-  link: string;
+
+  /** Adresse du serveur. */
+  baseUrl: string;
+
+  /** Miniature. */
   thumbnail: string;
+
+  /** URL du document */
+  link: string;
+
+  /** URL de téléchargement du document */
   download: string;
-  baseURL: string;
+}
+
+export interface Attachment extends CloudDocument {
+  date_time: string;
+  etat: boolean;
 }
