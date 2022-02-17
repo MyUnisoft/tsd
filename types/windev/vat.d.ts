@@ -7,8 +7,8 @@ import { Except } from "type-fest";
 export interface VatParam { 
   vat_param_id: number;
   code: string;
-  account_ded: Except<Account, "counterpart_account">;
-  account_coll: Except<Account, "counterpart_account">;
+  account_ded: null | Except<Account, "counterpart_account">;
+  account_coll: null | Except<Account, "counterpart_account">;
   vat: {
     id: number;
     rate: number;
