@@ -58,6 +58,11 @@ export interface NewEntryLine {
   pointage_aa?: string;
   pointage_mm?: string;
   pointage_jj?: string;
+
+  /**
+   * 3 letter currency code as defined by ISO 4217
+   */
+  currency?: string;
 }
 
 export interface NewEntry {
