@@ -1,27 +1,65 @@
 export interface UserToken {
+  /**
+   * Schema id.
+   */
   member_group_id: number;
   pers_physique_id: number;
 }
 
 export interface ApiToken {
   type: "api";
-  member_group_id: number;
-  third_party_id: number;
-  society_id: number;
+  /**
+   * Schema id.
+   */
+  m: number;
+
+  /**
+   * Third-Party id.
+   */
+  t: number;
+
+  /**
+   * Society id.
+   */
+  s: number;
 }
 
 export interface FirmToken {
   type: "firm";
-  member_group_id: number;
-  pers_physique_id: number;
-  third_party_id: number;
+
+  /**
+   * Schema id.
+   */
+  m: number;
+
+  /**
+   * Physical person id.
+   */
+  p: number;
+
+  /**
+   * Third-Party id.
+   */
+  t: number;
 }
 
 export interface B2CToken {
   type: "b2c";
-  member_group_id: number;
-  pers_physique_id: number;
-  third_party_id: number;
+
+  /**
+   * Schema id.
+   */
+   m: number;
+
+   /**
+    * Physical person id.
+    */
+   p: number;
+ 
+   /**
+    * Third-Party id.
+    */
+   t: number;
 }
 
 export interface BearerToken {
