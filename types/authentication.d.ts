@@ -17,6 +17,9 @@ export type HttpResponse = {
 } | {
   status: "firm-selection";
   details: MemberGroup[];
+} | {
+  status: "require-cgu-approval";
+  details: null;
 };
 
 export interface Policy {
@@ -27,7 +30,7 @@ export interface Policy {
 }
 
 export type Status =
-  "authenticated" | "multi-authenticated" | "firm-selection" | "update-password" | "require-otp";
+  "authenticated" | "multi-authenticated" | "firm-selection" | "update-password" | "require-otp" | "require-cgu-approval";
 
   export interface Firm {
   id: number | string;
