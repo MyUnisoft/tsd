@@ -204,6 +204,7 @@ interface BaseEntryLine {
 
 export interface EntryLineE extends BaseEntryLine{
   currency: string;
+  lettrage?: string | null;
   flags?: {
     leasing: {
       company: {
