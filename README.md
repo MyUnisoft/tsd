@@ -13,7 +13,6 @@
 <p align="center">
     <a href="https://github.com/MyUnisoft/tsd"><img src="https://img.shields.io/github/package-json/v/MyUnisoft/tsd?style=flat-square" alt="npm version"></a>
     <a href="https://github.com/MyUnisoft/tsd"><img src="https://img.shields.io/github/license/MyUnisoft/tsd?style=flat-square" alt="license"></a>
-    <a href="./SECURITY.md"><img src="https://img.shields.io/badge/Security-Responsible%20Disclosure-yellow.svg?style=flat-square" alt="Responsible Disclosure Policy" /></a>
 </p>
 
 ## 📢 About
