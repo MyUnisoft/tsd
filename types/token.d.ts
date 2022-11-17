@@ -8,6 +8,7 @@ export interface UserToken {
 
 export interface ApiToken {
   type: "api";
+
   /**
    * Schema id.
    */
@@ -41,6 +42,11 @@ export interface FirmToken {
    * Third-Party id.
    */
   t: number;
+
+  /**
+   * Expiration date.
+   */
+  exp?: number;
 }
 
 export interface B2CToken {
@@ -49,17 +55,22 @@ export interface B2CToken {
   /**
    * Schema id.
    */
-   m: number;
+  m: number;
 
-   /**
-    * Physical person id.
-    */
-   p: number;
- 
-   /**
-    * Third-Party id.
-    */
-   t: number;
+  /**
+  * Physical person id.
+  */
+  p: number;
+
+  /**
+  * Third-Party id.
+  */
+  t: number;
+
+  /**
+   * Expiration date.
+   */
+  exp?: number;
 }
 
 export interface BearerToken {
