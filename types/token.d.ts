@@ -5,7 +5,7 @@ export interface UserToken {
   member_group_id: number;
   pers_physique_id: number;
 
-  profilFamily: "Cabinet" | "Client";
+  profilType: "Cabinet" | "Client";
   profilId: number;
   profilName: string;
   isPlatformAdministrator?: boolean;
