@@ -4,6 +4,11 @@ export interface UserToken {
    */
   member_group_id: number;
   pers_physique_id: number;
+
+  profilType: "Cabinet" | "Client";
+  profilId: number;
+  profilName: string;
+  isPlatformAdministrator?: boolean;
 }
 
 export interface ApiToken {
@@ -55,7 +60,7 @@ export interface B2CToken {
     * Physical person id.
     */
    p: number;
- 
+
    /**
     * Third-Party id.
     */
