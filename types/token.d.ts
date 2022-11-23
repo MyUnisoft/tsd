@@ -7,6 +7,7 @@ export interface UserToken {
 
   profilType: "Cabinet" | "Client";
   profilId: string;
+  profilCode: string;
   profilName: string;
   isPlatformAdministrator?: boolean;
 
