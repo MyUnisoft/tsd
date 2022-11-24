@@ -6,9 +6,13 @@ export interface UserToken {
   pers_physique_id: number;
 
   profilType: "Cabinet" | "Client";
-  profilId: number;
+  profilId: string;
+  profilCode: string;
   profilName: string;
   isPlatformAdministrator?: boolean;
+
+  iat?: number;
+  exp?: number;
 }
 
 export interface ApiToken {
@@ -27,6 +31,9 @@ export interface ApiToken {
    * Society id.
    */
   s: number;
+
+  iat?: number;
+  exp?: number;
 }
 
 export interface FirmToken {
@@ -46,6 +53,9 @@ export interface FirmToken {
    * Third-Party id.
    */
   t: number;
+
+  iat?: number;
+  exp?: number;
 }
 
 export interface B2CToken {
@@ -65,6 +75,9 @@ export interface B2CToken {
     * Third-Party id.
     */
    t: number;
+
+   iat?: number;
+   exp?: number;
 }
 
 export interface BearerToken {
