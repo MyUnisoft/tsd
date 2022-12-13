@@ -1,6 +1,6 @@
 {
   "name": "@myunisoft/tsd",
-  "version": "2.4.1",
+  "version": "2.5.0",
   "description": "MyUnisoft public TypeScript definition",
   "scripts": {
     "test": "tsd",
