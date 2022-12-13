@@ -63,6 +63,11 @@ export interface NewEntryLine {
    * 3 letter currency code as defined by ISO 4217
    */
   currency?: string;
+
+  /**
+   * Valeur de la devise (quand non-égal à EUR)
+   */
+  value_currency?: number;
 }
 
 export interface NewEntry {

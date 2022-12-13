@@ -15,7 +15,7 @@ export interface SocietiesArray {
   society_array: CompanyInfo[];
 }
 
-export type SimplifiedCompany = Pick<Company, "society_id" | "name" | "siret" | "capital" | "address">; 
+export type SimplifiedCompany = Pick<Company, "society_id" | "name" | "siret" | "capital" | "address">;
 
 export interface CompanyInfo {
   /**Code [APE](https://www.insee.fr/fr/information/2406147). */
@@ -72,7 +72,7 @@ export interface CompanyInfo {
 
   /**Code [Insee](https://fr.wikipedia.org/wiki/Code_Insee). */
   insee: string;
-  
+
   enable_quantity: boolean;
 }
 
@@ -194,7 +194,7 @@ export interface LegalForm {
   code: string;
 }
 
-export interface GestionCenter {  
+export interface GestionCenter {
   center_gestion_id: number;
   name: string;
   address_number: string;
@@ -222,17 +222,17 @@ export interface Status {
 
 // pour le sdk?
 export type ListOfRegisterName =
-"AGEN" | "AIX-EN-PROVENCE" | "AJACCIO" | "ALBI" | "ALENCON" | "AMIENS" | "ANGERS" | "ANGOULEME" | "ANNECY" | "ANTIBES" | "ARRAS" | 
-"AUBENAS" | "AUCH" | "AURILLAC" | "AUXERRE" | "AVIGNON" | "BAR-LE-DUC" | "BASSE-TERRE" | "BASTIA" | "BAYONNE" | "BEAUVAIS" | "BELFORT" | 
-"BERGERAC" | "BERNAY" | "BESANCON" | "BEZIERS" | "BLOIS" | "BOBIGNY" | "BORDEAUX" | "BOULOGNE-SUR-MER" | "BOURG-EN-BRESSE" | "BOURGES" | "BREST" | 
-"BRIEY" | "BRIVE" | "CAEN" | "CAHORS" | "CANNES" | "CARCASSONNE" | "CASTRES" | "CAYENNE" | "CHALONS-EN-CHAMPAGNE" | "CHALON-SUR-SAONE" | "CHAMBERY" | 
-"CHARTRES" | "CHATEAUROUX" | "CHAUMONT" | "CHERBOURG" | "CLERMONT-FERRAND" | "COLMAR" | "COMPIEGNE" | "COUTANCES" | "CRETEIL" | "CUSSET" | "DAX" | 
-"DIEPPE" | "DIJON" | "DOUAI" | "DRAGUIGNAN" | "DUNKERQUE" | "EPINAL" | "EVREUX" | "EVRY" | "FOIX" | "FORT-DE-FRANCE" | "FREJUS" | 
-"GAP" | "GRASSE" | "GRENOBLE" | "GUERET" | "LA ROCHELLE" | "LA ROCHE-SUR-YON" | "LAVAL" | "LE HAVRE" | "LE MANS" | "LE PUY-EN-VELAY" | "LIBOURNE" | 
-"LILLE METROPOLE" | "LIMOGES" | "LISIEUX" | "LONS-LE-SAUNIER" | "LORIENT" | "LYON" | "MACON" | "MAMOUDZOU" | "MANOSQUE" | "MARSEILLE" | "MEAUX" | 
-"MELUN" | "MENDE" | "METZ" | "MONTAUBAN" | "MONT-DE-MARSAN" | "MONTLUCON" | "MONTPELLIER" | "MULHOUSE" | "NANCY" | "NANTERRE" | "NANTES" | 
-"NARBONNE" | "NERAC" | "NEVERS" | "NICE" | "NIMES" | "NIORT" | "ORLEANS" | "PARIS" | "PAU" | "PERIGUEUX" | "PERPIGNAN" | 
-"POINTE-A-PITRE" | "POITIERS" | "PONTOISE" | "QUIMPER" | "REIMS" | "RENNES" | "ROANNE" | "RODEZ" | "ROMANS" | "ROUEN" | "SAINT-BRIEUC" | 
+"AGEN" | "AIX-EN-PROVENCE" | "AJACCIO" | "ALBI" | "ALENCON" | "AMIENS" | "ANGERS" | "ANGOULEME" | "ANNECY" | "ANTIBES" | "ARRAS" |
+"AUBENAS" | "AUCH" | "AURILLAC" | "AUXERRE" | "AVIGNON" | "BAR-LE-DUC" | "BASSE-TERRE" | "BASTIA" | "BAYONNE" | "BEAUVAIS" | "BELFORT" |
+"BERGERAC" | "BERNAY" | "BESANCON" | "BEZIERS" | "BLOIS" | "BOBIGNY" | "BORDEAUX" | "BOULOGNE-SUR-MER" | "BOURG-EN-BRESSE" | "BOURGES" | "BREST" |
+"BRIEY" | "BRIVE" | "CAEN" | "CAHORS" | "CANNES" | "CARCASSONNE" | "CASTRES" | "CAYENNE" | "CHALONS-EN-CHAMPAGNE" | "CHALON-SUR-SAONE" | "CHAMBERY" |
+"CHARTRES" | "CHATEAUROUX" | "CHAUMONT" | "CHERBOURG" | "CLERMONT-FERRAND" | "COLMAR" | "COMPIEGNE" | "COUTANCES" | "CRETEIL" | "CUSSET" | "DAX" |
+"DIEPPE" | "DIJON" | "DOUAI" | "DRAGUIGNAN" | "DUNKERQUE" | "EPINAL" | "EVREUX" | "EVRY" | "FOIX" | "FORT-DE-FRANCE" | "FREJUS" |
+"GAP" | "GRASSE" | "GRENOBLE" | "GUERET" | "LA ROCHELLE" | "LA ROCHE-SUR-YON" | "LAVAL" | "LE HAVRE" | "LE MANS" | "LE PUY-EN-VELAY" | "LIBOURNE" |
+"LILLE METROPOLE" | "LIMOGES" | "LISIEUX" | "LONS-LE-SAUNIER" | "LORIENT" | "LYON" | "MACON" | "MAMOUDZOU" | "MANOSQUE" | "MARSEILLE" | "MEAUX" |
+"MELUN" | "MENDE" | "METZ" | "MONTAUBAN" | "MONT-DE-MARSAN" | "MONTLUCON" | "MONTPELLIER" | "MULHOUSE" | "NANCY" | "NANTERRE" | "NANTES" |
+"NARBONNE" | "NERAC" | "NEVERS" | "NICE" | "NIMES" | "NIORT" | "ORLEANS" | "PARIS" | "PAU" | "PERIGUEUX" | "PERPIGNAN" |
+"POINTE-A-PITRE" | "POITIERS" | "PONTOISE" | "QUIMPER" | "REIMS" | "RENNES" | "ROANNE" | "RODEZ" | "ROMANS" | "ROUEN" | "SAINT-BRIEUC" |
 "SAINT-DENIS-DE-LA-REUNION" | "SAINTES" | "SAINT-ETIENNE" | "SAINT MALO" | "SAINT-NAZAIRE" | "SAINT-PIERRE-DE-LA-REUNION" | "SAINT-QUENTIN" |
 "SALON-DE-PROVENCE" | "SARREGUEMINES" | "SAVERNE" | "SEDAN" | "SENS" | "SOISSONS" | "STRASBOURG" | "TARASCON" | "TARBES" | "THIONVILLE" |
 "THONON-LES-BAINS" | "TOULON" | "TOULOUSE" | "TOURS" | "TROYES" | "VALENCIENNES" | "VANNES" | "VERSAILLES" | "VESOUL" | "VIENNE" | "VILLEFRANCHE-TARARE";
@@ -347,7 +347,7 @@ export interface User {
 export interface Comptability {
   customer_waiting_account: string;
   accounting_firm_waiting_account: string;
-  
+
   /**Identifiant créancier Sepa. */
   ics: string;
 
@@ -488,7 +488,7 @@ export interface SocietyFromDataGouv {
   street_name: string;
   postal_code: string;
   city: Omit<CommonField, "id">;
-  
+
   /**Numéro de TVA Intracommunautaire (caluclable depuis SIREN/SIRET). */
   tva_intraco: string;
 
@@ -617,4 +617,16 @@ export interface PaymentType {
   payment_type_id: number;
   name: string;
   code: string;
+}
+
+export interface CurrencyRate {
+  code_iso: string;
+  label: string;
+  rate: number;
+}
+
+export interface Currencies {
+  date_rate: string;
+  base: Omit<CurrencyRate, "rate">,
+  array_rates: CurrencyRate[];
 }
