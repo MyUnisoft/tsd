@@ -1,3 +1,7 @@
+import { ProfilType, ProfilCode } from "./profil";
+
+export type TokenType = "user" | "api" | "firm" | "b2c";
+
 export interface UserToken {
   /**
    * Schema id.
@@ -5,9 +9,9 @@ export interface UserToken {
   member_group_id: number;
   pers_physique_id: number;
 
-  profilType: "Cabinet" | "Client";
+  profilType: ProfilType;
   profilId: string;
-  profilCode: string;
+  profilCode: ProfilCode;
   profilName: string;
   isPlatformAdministrator?: boolean;
 
