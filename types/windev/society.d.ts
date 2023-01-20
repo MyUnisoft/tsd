@@ -103,7 +103,7 @@ export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" 
   /**Dans l'ancien fichier, footer a les même params que Logo ici... */
   footer: null;
 
-  city: Omit<CommonField, "id">;
+  city: undefined | Omit<CommonField, "id">;
   comment: string;
   society_id: number;
   name: string;
