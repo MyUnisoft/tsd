@@ -29,12 +29,12 @@ export interface ApiToken {
   /**
    * Third-Party id.
    */
-  t: number;
+  t: string;
 
   /**
    * Society id.
    */
-  s: number;
+  s: string;
 
   iat?: number;
   exp?: number;
@@ -51,12 +51,12 @@ export interface FirmToken {
   /**
    * Physical person id.
    */
-  p: number;
+  p: string;
 
   /**
    * Third-Party id.
    */
-  t: number;
+  t: string;
 
   iat?: number;
   exp?: number;
@@ -73,12 +73,12 @@ export interface B2CToken {
    /**
     * Physical person id.
     */
-   p: number;
+   p: string;
 
    /**
     * Third-Party id.
     */
-   t: number;
+   t: string;
 
    iat?: number;
    exp?: number;
