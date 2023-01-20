@@ -12,12 +12,12 @@ export interface CommonField {
 export interface SocietiesArray {
   row_numbers: number;
   pages_number: number | null;
-  society_array: CompanyInfo[];
+  society_array: CompanyListEntity[];
 }
 
 export type SimplifiedCompany = Pick<Company, "society_id" | "name" | "siret" | "capital" | "address">;
 
-export interface CompanyInfo {
+export interface CompanyListEntity {
   /**Code [APE](https://www.insee.fr/fr/information/2406147). */
   ape: string | null;
 
@@ -76,7 +76,7 @@ export interface CompanyInfo {
   enable_quantity: boolean;
 }
 
-export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" | "address_number"> {
+export interface Company extends Omit<CompanyListEntity, "ape" | "city" | "road_type" | "address_number"> {
 
   /**Code [APE](https://www.insee.fr/fr/information/2406147). */
   ape: CommonField | null;
