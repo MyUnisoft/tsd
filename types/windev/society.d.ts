@@ -151,8 +151,16 @@ export interface Company extends Omit<CompanyListEntity, "ape" | "city" | "road_
   close_entries_VAT: boolean;
 
   axe: CommonField | null;
-
   formule_code: string;
+  gescom: null;
+  my_data_rh: boolean;
+  id_parent_society: number;
+  secondary_establishments: null;
+
+  /**
+   * Format: YYYY-MM-DD
+   */
+  date_engage_letter: string;
 }
 
 export interface PhysicalPersonEnFR { //  Nom temporaire.
