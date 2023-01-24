@@ -88,6 +88,7 @@ export interface Company extends Omit<CompanyListEntity, "ape" | "city" | "road_
     id: number;
     label: string;
     code: string;
+    code_edi: string;
   };
 
   road_type: CommonField | null;
