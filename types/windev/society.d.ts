@@ -12,12 +12,12 @@ export interface CommonField {
 export interface SocietiesArray {
   row_numbers: number;
   pages_number: number | null;
-  society_array: CompanyInfo[];
+  society_array: CompanyListEntity[];
 }
 
 export type SimplifiedCompany = Pick<Company, "society_id" | "name" | "siret" | "capital" | "address">;
 
-export interface CompanyInfo {
+export interface CompanyListEntity {
   /**Code [APE](https://www.insee.fr/fr/information/2406147). */
   ape: string | null;
 
@@ -76,7 +76,7 @@ export interface CompanyInfo {
   enable_quantity: boolean;
 }
 
-export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" | "address_number"> {
+export interface Company extends Omit<CompanyListEntity, "ape" | "city" | "road_type" | "address_number"> {
 
   /**Code [APE](https://www.insee.fr/fr/information/2406147). */
   ape: CommonField | null;
@@ -88,6 +88,7 @@ export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" 
     id: number;
     label: string;
     code: string;
+    code_edi: string;
   };
 
   road_type: CommonField | null;
@@ -103,7 +104,7 @@ export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" 
   /**Dans l'ancien fichier, footer a les même params que Logo ici... */
   footer: null;
 
-  city: Omit<CommonField, "id">;
+  city: undefined | Omit<CommonField, "id">;
   comment: string;
   society_id: number;
   name: string;
@@ -150,8 +151,16 @@ export interface Company extends Omit<CompanyInfo, "ape" | "city" | "road_type" 
   close_entries_VAT: boolean;
 
   axe: CommonField | null;
-
   formule_code: string;
+  gescom: null;
+  my_data_rh: boolean;
+  id_parent_society: number;
+  secondary_establishments: null;
+
+  /**
+   * Format: YYYY-MM-DD
+   */
+  date_engage_letter: string;
 }
 
 export interface PhysicalPersonEnFR { //  Nom temporaire.
@@ -222,20 +231,20 @@ export interface Status {
 
 // pour le sdk?
 export type ListOfRegisterName =
-"AGEN" | "AIX-EN-PROVENCE" | "AJACCIO" | "ALBI" | "ALENCON" | "AMIENS" | "ANGERS" | "ANGOULEME" | "ANNECY" | "ANTIBES" | "ARRAS" |
-"AUBENAS" | "AUCH" | "AURILLAC" | "AUXERRE" | "AVIGNON" | "BAR-LE-DUC" | "BASSE-TERRE" | "BASTIA" | "BAYONNE" | "BEAUVAIS" | "BELFORT" |
-"BERGERAC" | "BERNAY" | "BESANCON" | "BEZIERS" | "BLOIS" | "BOBIGNY" | "BORDEAUX" | "BOULOGNE-SUR-MER" | "BOURG-EN-BRESSE" | "BOURGES" | "BREST" |
-"BRIEY" | "BRIVE" | "CAEN" | "CAHORS" | "CANNES" | "CARCASSONNE" | "CASTRES" | "CAYENNE" | "CHALONS-EN-CHAMPAGNE" | "CHALON-SUR-SAONE" | "CHAMBERY" |
-"CHARTRES" | "CHATEAUROUX" | "CHAUMONT" | "CHERBOURG" | "CLERMONT-FERRAND" | "COLMAR" | "COMPIEGNE" | "COUTANCES" | "CRETEIL" | "CUSSET" | "DAX" |
-"DIEPPE" | "DIJON" | "DOUAI" | "DRAGUIGNAN" | "DUNKERQUE" | "EPINAL" | "EVREUX" | "EVRY" | "FOIX" | "FORT-DE-FRANCE" | "FREJUS" |
-"GAP" | "GRASSE" | "GRENOBLE" | "GUERET" | "LA ROCHELLE" | "LA ROCHE-SUR-YON" | "LAVAL" | "LE HAVRE" | "LE MANS" | "LE PUY-EN-VELAY" | "LIBOURNE" |
-"LILLE METROPOLE" | "LIMOGES" | "LISIEUX" | "LONS-LE-SAUNIER" | "LORIENT" | "LYON" | "MACON" | "MAMOUDZOU" | "MANOSQUE" | "MARSEILLE" | "MEAUX" |
-"MELUN" | "MENDE" | "METZ" | "MONTAUBAN" | "MONT-DE-MARSAN" | "MONTLUCON" | "MONTPELLIER" | "MULHOUSE" | "NANCY" | "NANTERRE" | "NANTES" |
-"NARBONNE" | "NERAC" | "NEVERS" | "NICE" | "NIMES" | "NIORT" | "ORLEANS" | "PARIS" | "PAU" | "PERIGUEUX" | "PERPIGNAN" |
-"POINTE-A-PITRE" | "POITIERS" | "PONTOISE" | "QUIMPER" | "REIMS" | "RENNES" | "ROANNE" | "RODEZ" | "ROMANS" | "ROUEN" | "SAINT-BRIEUC" |
-"SAINT-DENIS-DE-LA-REUNION" | "SAINTES" | "SAINT-ETIENNE" | "SAINT MALO" | "SAINT-NAZAIRE" | "SAINT-PIERRE-DE-LA-REUNION" | "SAINT-QUENTIN" |
-"SALON-DE-PROVENCE" | "SARREGUEMINES" | "SAVERNE" | "SEDAN" | "SENS" | "SOISSONS" | "STRASBOURG" | "TARASCON" | "TARBES" | "THIONVILLE" |
-"THONON-LES-BAINS" | "TOULON" | "TOULOUSE" | "TOURS" | "TROYES" | "VALENCIENNES" | "VANNES" | "VERSAILLES" | "VESOUL" | "VIENNE" | "VILLEFRANCHE-TARARE";
+  "AGEN" | "AIX-EN-PROVENCE" | "AJACCIO" | "ALBI" | "ALENCON" | "AMIENS" | "ANGERS" | "ANGOULEME" | "ANNECY" | "ANTIBES" | "ARRAS" |
+  "AUBENAS" | "AUCH" | "AURILLAC" | "AUXERRE" | "AVIGNON" | "BAR-LE-DUC" | "BASSE-TERRE" | "BASTIA" | "BAYONNE" | "BEAUVAIS" | "BELFORT" |
+  "BERGERAC" | "BERNAY" | "BESANCON" | "BEZIERS" | "BLOIS" | "BOBIGNY" | "BORDEAUX" | "BOULOGNE-SUR-MER" | "BOURG-EN-BRESSE" | "BOURGES" | "BREST" |
+  "BRIEY" | "BRIVE" | "CAEN" | "CAHORS" | "CANNES" | "CARCASSONNE" | "CASTRES" | "CAYENNE" | "CHALONS-EN-CHAMPAGNE" | "CHALON-SUR-SAONE" | "CHAMBERY" |
+  "CHARTRES" | "CHATEAUROUX" | "CHAUMONT" | "CHERBOURG" | "CLERMONT-FERRAND" | "COLMAR" | "COMPIEGNE" | "COUTANCES" | "CRETEIL" | "CUSSET" | "DAX" |
+  "DIEPPE" | "DIJON" | "DOUAI" | "DRAGUIGNAN" | "DUNKERQUE" | "EPINAL" | "EVREUX" | "EVRY" | "FOIX" | "FORT-DE-FRANCE" | "FREJUS" |
+  "GAP" | "GRASSE" | "GRENOBLE" | "GUERET" | "LA ROCHELLE" | "LA ROCHE-SUR-YON" | "LAVAL" | "LE HAVRE" | "LE MANS" | "LE PUY-EN-VELAY" | "LIBOURNE" |
+  "LILLE METROPOLE" | "LIMOGES" | "LISIEUX" | "LONS-LE-SAUNIER" | "LORIENT" | "LYON" | "MACON" | "MAMOUDZOU" | "MANOSQUE" | "MARSEILLE" | "MEAUX" |
+  "MELUN" | "MENDE" | "METZ" | "MONTAUBAN" | "MONT-DE-MARSAN" | "MONTLUCON" | "MONTPELLIER" | "MULHOUSE" | "NANCY" | "NANTERRE" | "NANTES" |
+  "NARBONNE" | "NERAC" | "NEVERS" | "NICE" | "NIMES" | "NIORT" | "ORLEANS" | "PARIS" | "PAU" | "PERIGUEUX" | "PERPIGNAN" |
+  "POINTE-A-PITRE" | "POITIERS" | "PONTOISE" | "QUIMPER" | "REIMS" | "RENNES" | "ROANNE" | "RODEZ" | "ROMANS" | "ROUEN" | "SAINT-BRIEUC" |
+  "SAINT-DENIS-DE-LA-REUNION" | "SAINTES" | "SAINT-ETIENNE" | "SAINT MALO" | "SAINT-NAZAIRE" | "SAINT-PIERRE-DE-LA-REUNION" | "SAINT-QUENTIN" |
+  "SALON-DE-PROVENCE" | "SARREGUEMINES" | "SAVERNE" | "SEDAN" | "SENS" | "SOISSONS" | "STRASBOURG" | "TARASCON" | "TARBES" | "THIONVILLE" |
+  "THONON-LES-BAINS" | "TOULON" | "TOULOUSE" | "TOURS" | "TROYES" | "VALENCIENNES" | "VANNES" | "VERSAILLES" | "VESOUL" | "VIENNE" | "VILLEFRANCHE-TARARE";
 
 export interface Register {
   id: number;
@@ -402,7 +411,7 @@ export interface Comptability {
   diary_dotation_id: number | null;
 
   /**Référence Comptabilité en DB. */
-  compatbility_type: Omit<CommonField, "value"> & {code: string};
+  compatbility_type: Omit<CommonField, "value"> & { code: string };
 
   /**Référence Plan Comptable en DB. */
   accounting_plan: Omit<CommonField, "value">;
@@ -452,13 +461,51 @@ export interface PhysicalPersonListEntity {
   };
   function: Omit<CommonField, "value">;
   start_date: string;
-  end_date: string | null;
+  end_date: string;
+  social_part: SocialPart;
+}
+
+interface AssociatedPersPhysique extends Omit<PhysicalPersonListEntity, "physical_person"> {
+  physical_person: {
+    id: number;
+    firstname: string;
+    name: string;
+    coord: Coordonnee[]
+  };
+}
+
+interface AssociatedCompany {
+  society_link_id: number;  // ???
+  society: {
+    revenu_pro: boolean;
+    id: number;
+    name: string;
+    siret: string;
+    capital: number;
+    nb_part: number;
+    date_capital: string;
+    address: string;
+    /**
+     * format: YYYY-MM-DD
+     */
+    start_date: string;
+    /**
+     * format: YYYY-MM-DD
+     */
+    end_date: string;
+    id_type_company: number;
+    head_group_if: boolean;
+    fiscal_integration: boolean;
+  };
+  signatory_function: Omit<CommonField, "value"> | null;
+  start_date: string;
+  end_date: string;
   social_part: SocialPart;
 }
 
 export interface AssociateList {
-  physical_person_list: PhysicalPersonListEntity[];
-  society_list: SocietyListEntity[];
+  physical_person_list: AssociatedPersPhysique[];
+  society_list: AssociatedCompany[];
 }
 
 export interface SocietyAssociate {
