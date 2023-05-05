@@ -7,10 +7,6 @@ export type HttpResponse = {
   policy: "OAuth2" | "AD";
   firm: Firm;
   details: BearerToken;
-  userData?: Information;
-} | {
-  status: "authenticated";
-  details: Policy[];
 } | {
   status: "update-password";
   details: MemberGroup;
@@ -22,17 +18,10 @@ export type HttpResponse = {
   details: null;
 };
 
-export interface Policy {
-  policy: "OAuth2" | "AD";
-  firm: Firm;
-  details: BearerToken;
-  userData?: Information;
-}
-
 export type Status =
   "authenticated" | "multi-authenticated" | "firm-selection" | "update-password" | "require-otp" | "require-cgu-approval";
 
-  export interface Firm {
+export interface Firm {
   id: number | string;
   label: string;
 }
