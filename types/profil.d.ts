@@ -17,6 +17,7 @@ export type ProfilCode =
   "cli_compta_four" |
   "cli_compta_cli" |
   "cli_salarie" |
+  "cli_dirigeant_consult" |
   "cli_dirigeant_mydatarh" |
   "cli_envoi_document" |
   "cli_compta_cli_fourni" |
