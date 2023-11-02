@@ -1,6 +1,7 @@
 import { ProfilType, ProfilCode } from "./profil";
 
 export type TokenType = "user" | "api" | "firm" | "b2c";
+export type TokenScope = "excel_worksheet";
 
 export interface UserToken {
   /**
@@ -14,6 +15,11 @@ export interface UserToken {
   profilCode: ProfilCode;
   profilName: string;
   isPlatformAdministrator?: boolean;
+  scope?: {
+    name: TokenScope;
+    accountingFirmId?: string;
+    accountingFolderId?: string;
+  };
 
   iat?: number;
   exp?: number;
