@@ -9,8 +9,7 @@ export type ProfilCode =
   "cabi_collab_social" |
   "cabi_collab" |
   "cabi_collab_backoffice" |
-  "cabi_collab_tout" |
-  "cabi_collab_consult" |
+  "cli_dirigeant_tout" |
   "cli_daf" |
   "cli_compta" |
   "cli_compta_treso" |
