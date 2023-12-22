@@ -4,7 +4,7 @@ import { MemberGroup } from "./regular";
 
 export type HttpResponse = {
   status: "authenticated";
-  policy: "OAuth2" | "AD";
+  policy: "OAuth2";
   firm: Firm;
   details: BearerToken;
 } | {
@@ -16,10 +16,17 @@ export type HttpResponse = {
 } | {
   status: "require-cgu-approval";
   details: null;
+} | {
+  status: "require-otp";
+  details: null;
 };
 
 export type Status =
-  "authenticated" | "multi-authenticated" | "firm-selection" | "update-password" | "require-otp" | "require-cgu-approval";
+  "authenticated" |
+  "firm-selection" |
+  "update-password" |
+  "require-otp" |
+  "require-cgu-approval";
 
 export interface Firm {
   id: number | string;
