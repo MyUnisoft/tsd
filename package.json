@@ -26,14 +26,14 @@
   },
   "homepage": "https://github.com/MyUnisoft/tsd#readme",
   "devDependencies": {
-    "tsd": "^0.29.0",
-    "typedoc": "^0.25.3",
-    "typescript": "^4.9.5"
+    "tsd": "^0.31.1",
+    "typedoc": "^0.25.13",
+    "typescript": "^5.4.5"
   },
   "tsd": {
     "directory": "test"
   },
   "dependencies": {
-    "type-fest": "^4.6.0"
+    "type-fest": "^4.20.1"
   }
 }
