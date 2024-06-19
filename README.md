@@ -20,7 +20,7 @@
 This package has been designed to allow declaring and sharing TypeScript interfaces and types across several of our projects (public or private).
 
 ## 🚧 Requirements
-- [Node.js](https://nodejs.org/en/) v14 or higher
+- [Node.js](https://nodejs.org/en/) v20 or higher
 
 ## 🚀 Getting Started
 
