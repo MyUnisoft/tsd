@@ -9,7 +9,7 @@ export interface UserToken {
    */
   member_group_id: number;
   pers_physique_id: number;
-
+  email: string;
   profilType: ProfilType;
   profilId: string;
   profilCode: ProfilCode;
