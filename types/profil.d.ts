@@ -20,4 +20,5 @@ export type ProfilCode =
   "cli_dirigeant_mydatarh" |
   "cli_envoi_document" |
   "cli_compta_cli_fourni" |
-  "cli_compta_no_paye";
+  "cli_compta_no_paye" |
+  "cli_collaboratif_gratuit";
