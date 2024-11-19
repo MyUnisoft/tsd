@@ -37,7 +37,11 @@ export interface Information {
   nom: string;
   prenom: string;
   isadmin: boolean;
+  "2fa": boolean;
   user_id: number;
+  profil: string;
+  id_profil: number;
+  id_type_profil: number;
   mail: {
       mail: string;
       id_coord_pers_physique: string;
